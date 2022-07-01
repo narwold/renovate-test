@@ -15,11 +15,6 @@
       "commitBody": "BREAKING CHANGE: Major dependency update occurred"
     },
     {
-      "matchManagers": ["bundler"],
-      "rangeStrategy": "update-lockfile",
-      "recreateClosed": false
-    },
-    {
       "matchCurrentVersion": "/^\\^?0\\./",
       "labels": [
         "renovate",
@@ -39,8 +34,8 @@
       "groupName": "flipper"
     }
   ],
-  "recreateClosed": true,
-  "rangeStrategy": "bump",
+  "recreateClosed": false,
+  "rangeStrategy": "update-lockfile",
   "rebaseWhen": "conflicted",
   "updateInternalDeps": true,
   "semanticCommits": "enabled",
