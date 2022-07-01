@@ -1,49 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "allowPostUpgradeCommandTemplating": true,
-  "enabledManagers": ["npm", "nvm", "bundler", "gomod", "pip_requirements"],
-  "labels": ["renovate", "dependencies", "{{updateType}}", "renovate-testing"],
+  "enabledManagers": ["bundler"],
   "packageRules": [
-    {
-      "matchUpdateTypes": ["patch", "minor"],
-      "semanticCommitType": "fix"
-    },
-    {
-      "matchUpdateTypes": ["major"],
-      "matchDepTypes": ["dependencies"],
-      "semanticCommitType": "feat",
-      "commitBody": "BREAKING CHANGE: Major dependency update occurred"
-    },
-    {
-      "matchCurrentVersion": "/^\\^?0\\./",
-      "labels": [
-        "renovate",
-        "dependencies",
-        "pre-version-1",
-        "{{depType}}",
-        "renovate-testing"
-      ]
-    },
-    {
-      "matchManagers": ["bundler"],
-      "matchPackagePatterns": ["ruby"],
-      "enabled": false
-    },
     {
       "matchPackageNames": ["flipper", "flipper-redis"],
       "groupName": "flipper"
     }
   ],
-  "recreateClosed": false,
-  "rangeStrategy": "update-lockfile",
-  "rebaseWhen": "conflicted",
-  "updateInternalDeps": true,
-  "semanticCommits": "enabled",
-  "vulnerabilityAlerts": {
-    "addLabels": ["security"]
-  },
-  "branchPrefix": "renovate/",
-  "prHourlyLimit": 6,
-  "separateMajorMinor": true,
-  "dependencyDashboard": true
+  "rangeStrategy": "update-lockfile"
 }
