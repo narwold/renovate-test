@@ -1,0 +1,1829 @@
+DEBUG: No dangling containers to remove
+INFO: Repository started
+{
+  "renovateVersion": "32.102.1"
+}
+DEBUG: Using localDir: /mnt/renovate/gh/narwold/renovate-test
+DEBUG: PackageFiles.clear() - Package files deleted
+{
+  "baseBranches": []
+}
+DEBUG: resetMemCache()
+DEBUG: initRepo("narwold/renovate-test")
+DEBUG: narwold/renovate-test default branch = main
+DEBUG: Using app token for git init
+DEBUG: Repository cache is valid
+DEBUG: Resetting npmrc
+DEBUG: detectSemanticCommits()
+DEBUG: checkOnboarding()
+DEBUG: isOnboarded()
+DEBUG: Checking cached config file name
+DEBUG: Existing config file confirmed
+DEBUG: Repository config
+{
+  "fileName": "renovate.json",
+  "config": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "enabledManagers": [
+      "bundler"
+    ],
+    "packageRules": [
+      {
+        "matchPackageNames": [
+          "flipper",
+          "flipper-redis"
+        ],
+        "groupName": "flipper"
+      }
+    ],
+    "rangeStrategy": "update-lockfile",
+    "dependencyDashboard": true
+  }
+}
+DEBUG: Repo is onboarded
+DEBUG: migrateAndValidate()
+DEBUG: No config migration necessary
+DEBUG: massaged config
+{
+  "config": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "enabledManagers": [
+      "bundler"
+    ],
+    "packageRules": [
+      {
+        "matchPackageNames": [
+          "flipper",
+          "flipper-redis"
+        ],
+        "groupName": "flipper"
+      }
+    ],
+    "rangeStrategy": "update-lockfile",
+    "dependencyDashboard": true,
+    "extends": [
+      "github>whitesource/merge-confidence:beta",
+      "github>renovatebot/spring-remediations"
+    ]
+  }
+}
+DEBUG: migrated config
+{
+  "config": {
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "enabledManagers": [
+      "bundler"
+    ],
+    "packageRules": [
+      {
+        "matchPackageNames": [
+          "flipper",
+          "flipper-redis"
+        ],
+        "groupName": "flipper"
+      }
+    ],
+    "rangeStrategy": "update-lockfile",
+    "dependencyDashboard": true,
+    "extends": [
+      "github>whitesource/merge-confidence:beta",
+      "github>renovatebot/spring-remediations"
+    ]
+  }
+}
+DEBUG: Found repo ignorePaths
+{
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**"
+  ]
+}
+DEBUG: No vulnerability alerts found
+DEBUG: No vulnerability alerts found
+DEBUG: findIssue(Dependency Dashboard)
+DEBUG: Retrieving issueList
+DEBUG: Retrieved 1 issues
+DEBUG: No baseBranches
+DEBUG: extract()
+DEBUG: Setting current branch to main
+DEBUG: Initializing git repository into /mnt/renovate/gh/narwold/renovate-test
+DEBUG: Performing blobless clone
+DEBUG: git clone completed
+{
+  "durationMs": 868
+}
+DEBUG: latest repository commit
+{
+  "latestCommit": {
+    "hash": "a29dc97a87ff577597448a164ccca7ba291383c1",
+    "date": "2022-07-01T15:25:48-04:00",
+    "message": "re-add dep dashboard",
+    "refs": "HEAD -> main, origin/main, origin/HEAD",
+    "body": "",
+    "author_name": "Jonathan Narwold",
+    "author_email": "jonathan.narwold@beam.dental"
+  }
+}
+DEBUG: latest commit
+{
+  "branchName": "main",
+  "latestCommitDate": "2022-07-01T15:25:48-04:00"
+}
+DEBUG: Applying enabledManagers filtering
+DEBUG: Using file match: (^|/)Gemfile$ for manager bundler
+DEBUG: Matched 1 file(s) for manager bundler: Gemfile
+DEBUG: Found Gemfile.lock file(packageFile="Gemfile")
+DEBUG: Found bundler package files
+DEBUG: Found 1 package file(s)
+INFO: Dependency extraction complete
+{
+  "baseBranch": "main",
+  "stats": {
+    "managers": {
+      "bundler": {
+        "fileCount": 1,
+        "depCount": 11
+      }
+    },
+    "total": {
+      "fileCount": 1,
+      "depCount": 11
+    }
+  }
+}
+DEBUG: PackageFiles.add() - Package file saved for branch
+{
+  "baseBranch": "main"
+}
+DEBUG: Package releases lookups complete
+{
+  "baseBranch": "main"
+}
+DEBUG: branchifyUpgrades
+DEBUG: Using group branchName template
+DEBUG: Dependency flipper is part of group flipper
+DEBUG: Using group branchName template
+DEBUG: Dependency flipper-redis is part of group flipper
+DEBUG: 4 flattened updates found: ruby, ruby, flipper, flipper-redis
+DEBUG: Returning 3 branch(es)
+DEBUG: Fetching changelog: https://github.com/ruby/ruby (2.7.3 -> 2.7.6)
+DEBUG: Fetching changelog: https://github.com/ruby/ruby (2.7.3 -> 3.1.2)
+DEBUG: config.repoIsOnboarded=true
+DEBUG: packageFiles with updates
+{
+  "config": {
+    "bundler": [
+      {
+        "packageFile": "Gemfile",
+        "registryUrls": [
+          "https://rubygems.org"
+        ],
+        "deps": [
+          {
+            "depName": "ruby",
+            "currentValue": "2.7.3",
+            "datasource": "ruby-version",
+            "registryUrls": null,
+            "depIndex": 0,
+            "updates": [
+              {
+                "bucket": "non-major",
+                "newVersion": "2.7.6",
+                "newValue": "2.7.6",
+                "releaseTimestamp": "2022-04-12T00:00:00.000Z",
+                "newMajor": 2,
+                "newMinor": 7,
+                "updateType": "patch",
+                "branchName": "renovate/ruby-2.x"
+              },
+              {
+                "bucket": "major",
+                "newVersion": "3.1.2",
+                "newValue": "3.1.2",
+                "releaseTimestamp": "2022-04-12T00:00:00.000Z",
+                "newMajor": 3,
+                "newMinor": 1,
+                "updateType": "major",
+                "branchName": "renovate/ruby-3.x"
+              }
+            ],
+            "warnings": [],
+            "versioning": "ruby",
+            "sourceUrl": "https://github.com/ruby/ruby",
+            "homepage": "https://www.ruby-lang.org",
+            "currentVersion": "2.7.3",
+            "isSingleVersion": true,
+            "fixedVersion": "2.7.3"
+          },
+          {
+            "depName": "flipper",
+            "managerData": {
+              "lineNumber": 4
+            },
+            "datasource": "rubygems",
+            "lockedVersion": "0.22.2",
+            "depIndex": 1,
+            "updates": [
+              {
+                "bucket": "non-major",
+                "newVersion": "0.25.0",
+                "newMajor": 0,
+                "newMinor": 25,
+                "updateType": "minor",
+                "isRange": true,
+                "isLockfileUpdate": true,
+                "branchName": "renovate/flipper"
+              }
+            ],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "0.22.2",
+            "isSingleVersion": true,
+            "fixedVersion": "0.22.2"
+          },
+          {
+            "depName": "flipper-redis",
+            "managerData": {
+              "lineNumber": 5
+            },
+            "currentValue": "~> 0.22.2",
+            "datasource": "rubygems",
+            "lockedVersion": "0.22.2",
+            "depIndex": 2,
+            "updates": [
+              {
+                "bucket": "non-major",
+                "newVersion": "0.25.0",
+                "newValue": "~> 0.25.0",
+                "newMajor": 0,
+                "newMinor": 25,
+                "updateType": "minor",
+                "isRange": true,
+                "branchName": "renovate/flipper"
+              }
+            ],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "0.22.2",
+            "isSingleVersion": false,
+            "fixedVersion": "0.22.2"
+          },
+          {
+            "depName": "buildkite-test_collector",
+            "managerData": {
+              "lineNumber": 8
+            },
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "1.1.1",
+            "depIndex": 3,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "1.1.1",
+            "fixedVersion": "1.1.1"
+          },
+          {
+            "depName": "database_cleaner",
+            "managerData": {
+              "lineNumber": 9
+            },
+            "currentValue": "~> 2.0.1",
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "2.0.1",
+            "depIndex": 4,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "2.0.1",
+            "fixedVersion": "2.0.1"
+          },
+          {
+            "depName": "factory_bot",
+            "managerData": {
+              "lineNumber": 10
+            },
+            "currentValue": "~> 6.2.1",
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "6.2.1",
+            "depIndex": 5,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "6.2.1",
+            "fixedVersion": "6.2.1"
+          },
+          {
+            "depName": "rspec_junit_formatter",
+            "managerData": {
+              "lineNumber": 11
+            },
+            "currentValue": "~> 0.5.1",
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "0.5.1",
+            "depIndex": 6,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "0.5.1",
+            "fixedVersion": "0.5.1"
+          },
+          {
+            "depName": "shoulda-matchers",
+            "managerData": {
+              "lineNumber": 12
+            },
+            "currentValue": "~> 5.1.0",
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "5.1.0",
+            "depIndex": 7,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "5.1.0",
+            "fixedVersion": "5.1.0"
+          },
+          {
+            "depName": "simplecov",
+            "managerData": {
+              "lineNumber": 13
+            },
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "0.21.2",
+            "depIndex": 8,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "0.21.2",
+            "fixedVersion": "0.21.2"
+          },
+          {
+            "depName": "test-prof",
+            "managerData": {
+              "lineNumber": 14
+            },
+            "currentValue": "~> 1.0.9",
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "1.0.9",
+            "depIndex": 9,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "1.0.9",
+            "fixedVersion": "1.0.9"
+          },
+          {
+            "depName": "timecop",
+            "managerData": {
+              "lineNumber": 15
+            },
+            "currentValue": "~> 0.9.5",
+            "datasource": "rubygems",
+            "depTypes": [
+              "test"
+            ],
+            "lockedVersion": "0.9.5",
+            "depIndex": 10,
+            "updates": [],
+            "warnings": [],
+            "versioning": "ruby",
+            "currentVersion": "0.9.5",
+            "fixedVersion": "0.9.5"
+          }
+        ],
+        "lockFiles": [
+          "Gemfile.lock"
+        ]
+      }
+    ]
+  }
+}
+DEBUG: processRepo()
+DEBUG: Processing 3 branches: renovate/flipper, renovate/ruby-2.x, renovate/ruby-3.x
+DEBUG: Calculated maximum PRs remaining this run
+{
+  "prsRemaining": 99
+}
+DEBUG: PullRequests limit = 99
+DEBUG: Calculated maximum branches remaining this run
+{
+  "branchesRemaining": 99
+}
+DEBUG: Branches limit = 99
+DEBUG: getBranchPr(renovate/ruby-2.x)(branch="renovate/ruby-2.x")
+DEBUG: findPr(renovate/ruby-2.x, undefined, open)(branch="renovate/ruby-2.x")
+DEBUG: getPrList success(branch="renovate/ruby-2.x")
+{
+  "pullsTotal": 3,
+  "requestsTotal": 1,
+  "apiQuotaAffected": true
+}
+DEBUG: Found PR #3(branch="renovate/ruby-2.x")
+DEBUG: branchExists=true(branch="renovate/ruby-2.x")
+DEBUG: dependencyDashboardCheck=undefined(branch="renovate/ruby-2.x")
+DEBUG: PR rebase requested=false(branch="renovate/ruby-2.x")
+DEBUG: Checking if PR has been edited(branch="renovate/ruby-2.x")
+DEBUG: Branch has not been modified(branch="renovate/ruby-2.x")
+{
+  "branchName": "renovate/ruby-2.x"
+}
+DEBUG: Found existing branch PR(branch="renovate/ruby-2.x")
+DEBUG: Checking schedule(at any time, null)(branch="renovate/ruby-2.x")
+DEBUG: No schedule defined(branch="renovate/ruby-2.x")
+DEBUG: Setting current branch to main(branch="renovate/ruby-2.x")
+DEBUG: latest commit(branch="renovate/ruby-2.x")
+{
+  "branchName": "main",
+  "latestCommitDate": "2022-07-01T15:25:48-04:00"
+}
+DEBUG: Branch already exists(branch="renovate/ruby-2.x")
+DEBUG: getBranchPr(renovate/ruby-2.x)(branch="renovate/ruby-2.x")
+DEBUG: findPr(renovate/ruby-2.x, undefined, open)(branch="renovate/ruby-2.x")
+DEBUG: Found PR #3(branch="renovate/ruby-2.x")
+DEBUG: GitHub 404(branch="renovate/ruby-2.x")
+{
+  "url": "repos/narwold/renovate-test/branches/main/protection"
+}
+DEBUG: No branch protection found(branch="renovate/ruby-2.x")
+DEBUG: Skipping stale branch check due to rebaseWhen=auto(branch="renovate/ruby-2.x")
+DEBUG: isBranchConflicted(main, renovate/ruby-2.x)(branch="renovate/ruby-2.x")
+DEBUG: Setting git author name(branch="renovate/ruby-2.x")
+{
+  "gitAuthorName": "Renovate Bot"
+}
+DEBUG: Setting git author email(branch="renovate/ruby-2.x")
+{
+  "gitAuthorEmail": "bot@renovateapp.com"
+}
+DEBUG: Branch does not need rebasing(branch="renovate/ruby-2.x")
+DEBUG: Using reuseExistingBranch: true(branch="renovate/ruby-2.x")
+DEBUG: manager.getUpdatedPackageFiles() reuseExistinbranch=true(branch="renovate/ruby-2.x")
+DEBUG: Found Gemfile.lock file(packageFile="Gemfile", branch="renovate/ruby-2.x")
+DEBUG: Found Gemfile.lock file(packageFile="Gemfile", branch="renovate/ruby-2.x")
+DEBUG: Branch dep is already updated(packageFile="Gemfile", branch="renovate/ruby-2.x")
+{
+  "depName": "ruby"
+}
+DEBUG: No content changed(packageFile="Gemfile", branch="renovate/ruby-2.x")
+{
+  "depName": "ruby"
+}
+DEBUG: No package files need updating(branch="renovate/ruby-2.x")
+DEBUG: No updated lock files in branch(branch="renovate/ruby-2.x")
+DEBUG: No files to commit(branch="renovate/ruby-2.x")
+DEBUG: Checking if we can automerge branch(branch="renovate/ruby-2.x")
+DEBUG: mergeStatus=no automerge(branch="renovate/ruby-2.x")
+DEBUG: Ensuring PR(branch="renovate/ruby-2.x")
+DEBUG: There are 0 errors and 0 warnings(branch="renovate/ruby-2.x")
+DEBUG: getBranchPr(renovate/ruby-2.x)(branch="renovate/ruby-2.x")
+DEBUG: findPr(renovate/ruby-2.x, undefined, open)(branch="renovate/ruby-2.x")
+DEBUG: Found PR #3(branch="renovate/ruby-2.x")
+DEBUG: Found existing PR(branch="renovate/ruby-2.x")
+DEBUG: Processing existing PR(branch="renovate/ruby-2.x")
+DEBUG: Pull Request #3 does not need updating(branch="renovate/ruby-2.x")
+DEBUG: PR is not configured for automerge(branch="renovate/ruby-2.x")
+DEBUG: getBranchPr(renovate/flipper)(branch="renovate/flipper")
+DEBUG: findPr(renovate/flipper, undefined, open)(branch="renovate/flipper")
+DEBUG: findPr(renovate/flipper, undefined, closed)(branch="renovate/flipper")
+DEBUG: Found PR #1(branch="renovate/flipper")
+DEBUG: branchExists=false(branch="renovate/flipper")
+DEBUG: dependencyDashboardCheck=undefined(branch="renovate/flipper")
+DEBUG: recreateClosed is false(branch="renovate/flipper")
+DEBUG: findPr(renovate/flipper, Update flipper to v0.25.0, !open)(branch="renovate/flipper")
+DEBUG: prAlreadyExisted=false(branch="renovate/flipper")
+DEBUG: Checking schedule(at any time, null)(branch="renovate/flipper")
+DEBUG: No schedule defined(branch="renovate/flipper")
+DEBUG: Setting current branch to main(branch="renovate/flipper")
+DEBUG: latest commit(branch="renovate/flipper")
+{
+  "branchName": "main",
+  "latestCommitDate": "2022-07-01T15:25:48-04:00"
+}
+DEBUG: Branch needs creating(branch="renovate/flipper")
+DEBUG: Using reuseExistingBranch: false(branch="renovate/flipper")
+DEBUG: manager.getUpdatedPackageFiles() reuseExistinbranch=false(branch="renovate/flipper")
+DEBUG: bundler.updateLockedDependency: flipper@0.22.2 -> 0.25.0 [Gemfile.lock](branch="renovate/flipper")
+DEBUG: Starting search at index 81(packageFile="Gemfile", branch="renovate/flipper")
+{
+  "depName": "flipper-redis"
+}
+DEBUG: Found match at index 81(packageFile="Gemfile", branch="renovate/flipper")
+{
+  "depName": "flipper-redis"
+}
+DEBUG: Found Gemfile.lock file(packageFile="Gemfile", branch="renovate/flipper")
+DEBUG: Contents updated(packageFile="Gemfile", branch="renovate/flipper")
+{
+  "depName": "flipper-redis"
+}
+DEBUG: bundler.updateArtifacts(Gemfile)(branch="renovate/flipper")
+DEBUG: Using bundler version specified in lockfile(branch="renovate/flipper")
+DEBUG: Using ruby version from gemfile(branch="renovate/flipper")
+DEBUG: Using docker to execute(branch="renovate/flipper")
+{
+  "image": "ruby"
+}
+DEBUG: Found version constraint - checking for a compatible image to use(branch="renovate/flipper")
+{
+  "depName": "docker.io/renovate/ruby",
+  "scheme": "ruby",
+  "constraint": "2.7.3"
+}
+DEBUG: Found compatible image version(branch="renovate/flipper")
+{
+  "depName": "docker.io/renovate/ruby",
+  "scheme": "ruby",
+  "constraint": "2.7.3",
+  "version": "2.7.3"
+}
+DEBUG: Resolved tag constraint(branch="renovate/flipper")
+{
+  "image": "docker.io/renovate/ruby",
+  "tagConstraint": "2.7.3",
+  "tagVersioning": "ruby",
+  "tag": "2.7.3"
+}
+DEBUG: Fetching Docker image: docker.io/renovate/ruby:2.7.3(branch="renovate/flipper")
+DEBUG: Finished fetching Docker image docker.io/renovate/ruby:2.7.3@sha256:31a16968fab3cdce0cbff9ae9cc4e5276a52e3a4715226f142953c566d1b9741(branch="renovate/flipper")
+DEBUG: Executing command(branch="renovate/flipper")
+{
+  "command": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\""
+}
+DEBUG: exec completed(branch="renovate/flipper")
+{
+  "cmd": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\"",
+  "durationMs": 9457,
+  "stdout": "Installing v1 tool bundler v2.2.27\nSuccessfully installed bundler-2.2.27\n1 gem installed\nBundler version 2.2.27\nInstalled v1 bundler in 2 seconds\nruby 2.7.3p183 (2021-04-05 revision 6847ee089d) [x86_64-linux]\nFetching gem metadata from https://rubygems.org/........\nResolving dependencies...\nWriting lockfile to /mnt/renovate/gh/narwold/renovate-test/Gemfile.lock\n",
+  "stderr": ""
+}
+DEBUG: Returning updated Gemfile.lock(branch="renovate/flipper")
+DEBUG: bundler.updateArtifacts(Gemfile)(branch="renovate/flipper")
+DEBUG: Using bundler version specified in lockfile(branch="renovate/flipper")
+DEBUG: Using ruby version specified in .ruby-version(branch="renovate/flipper")
+DEBUG: Using docker to execute(branch="renovate/flipper")
+{
+  "image": "ruby"
+}
+DEBUG: Found version constraint - checking for a compatible image to use(branch="renovate/flipper")
+{
+  "depName": "docker.io/renovate/ruby",
+  "scheme": "ruby",
+  "constraint": "2.7.3"
+}
+DEBUG: Found compatible image version(branch="renovate/flipper")
+{
+  "depName": "docker.io/renovate/ruby",
+  "scheme": "ruby",
+  "constraint": "2.7.3",
+  "version": "2.7.3"
+}
+DEBUG: Resolved tag constraint(branch="renovate/flipper")
+{
+  "image": "docker.io/renovate/ruby",
+  "tagConstraint": "2.7.3",
+  "tagVersioning": "ruby",
+  "tag": "2.7.3"
+}
+DEBUG: Docker image is already prefetched: docker.io/renovate/ruby:2.7.3@sha256:31a16968fab3cdce0cbff9ae9cc4e5276a52e3a4715226f142953c566d1b9741(branch="renovate/flipper")
+DEBUG: Executing command(branch="renovate/flipper")
+{
+  "command": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\""
+}
+DEBUG: rawExec err(branch="renovate/flipper")
+{
+  "err": {
+    "killed": false,
+    "code": 6,
+    "signal": null,
+    "cmd": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\"",
+    "stdout": "Installing v1 tool bundler v2.2.27\nSuccessfully installed bundler-2.2.27\n1 gem installed\nBundler version 2.2.27\nInstalled v1 bundler in 2 seconds\nruby 2.7.3p183 (2021-04-05 revision 6847ee089d) [x86_64-linux]\nFetching gem metadata from https://rubygems.org/........\nResolving dependencies...\n",
+    "stderr": "Bundler could not find compatible versions for gem \"flipper\":\n  In snapshot (Gemfile.lock):\n    flipper (>= 0.25.0)\n\n  In Gemfile:\n    flipper\n\n    flipper-redis (~> 0.22.2) was resolved to 0.22.2, which depends on\n      flipper (~> 0.22.2)\n\nRunning `bundle update` will rebuild your snapshot from scratch, using only\nthe gems in your Gemfile, which may resolve the conflict.\n",
+    "message": "Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\"\nBundler could not find compatible versions for gem \"flipper\":\n  In snapshot (Gemfile.lock):\n    flipper (>= 0.25.0)\n\n  In Gemfile:\n    flipper\n\n    flipper-redis (~> 0.22.2) was resolved to 0.22.2, which depends on\n      flipper (~> 0.22.2)\n\nRunning `bundle update` will rebuild your snapshot from scratch, using only\nthe gems in your Gemfile, which may resolve the conflict.\n",
+    "stack": "Error: Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\"\nBundler could not find compatible versions for gem \"flipper\":\n  In snapshot (Gemfile.lock):\n    flipper (>= 0.25.0)\n\n  In Gemfile:\n    flipper\n\n    flipper-redis (~> 0.22.2) was resolved to 0.22.2, which depends on\n      flipper (~> 0.22.2)\n\nRunning `bundle update` will rebuild your snapshot from scratch, using only\nthe gems in your Gemfile, which may resolve the conflict.\n\n    at ChildProcess.exithandler (child_process.js:383:12)\n    at ChildProcess.emit (events.js:400:28)\n    at ChildProcess.emit (domain.js:475:12)\n    at maybeClose (internal/child_process.js:1058:16)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:293:5)"
+  }
+}
+DEBUG: Bundler has a resolve error(branch="renovate/flipper")
+{
+  "err": {
+    "killed": false,
+    "code": 6,
+    "signal": null,
+    "cmd": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\"",
+    "stdout": "Installing v1 tool bundler v2.2.27\nSuccessfully installed bundler-2.2.27\n1 gem installed\nBundler version 2.2.27\nInstalled v1 bundler in 2 seconds\nruby 2.7.3p183 (2021-04-05 revision 6847ee089d) [x86_64-linux]\nFetching gem metadata from https://rubygems.org/........\nResolving dependencies...\n",
+    "stderr": "Bundler could not find compatible versions for gem \"flipper\":\n  In snapshot (Gemfile.lock):\n    flipper (>= 0.25.0)\n\n  In Gemfile:\n    flipper\n\n    flipper-redis (~> 0.22.2) was resolved to 0.22.2, which depends on\n      flipper (~> 0.22.2)\n\nRunning `bundle update` will rebuild your snapshot from scratch, using only\nthe gems in your Gemfile, which may resolve the conflict.\n",
+    "message": "Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\"\nBundler could not find compatible versions for gem \"flipper\":\n  In snapshot (Gemfile.lock):\n    flipper (>= 0.25.0)\n\n  In Gemfile:\n    flipper\n\n    flipper-redis (~> 0.22.2) was resolved to 0.22.2, which depends on\n      flipper (~> 0.22.2)\n\nRunning `bundle update` will rebuild your snapshot from scratch, using only\nthe gems in your Gemfile, which may resolve the conflict.\n",
+    "stack": "Error: Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis\"\nBundler could not find compatible versions for gem \"flipper\":\n  In snapshot (Gemfile.lock):\n    flipper (>= 0.25.0)\n\n  In Gemfile:\n    flipper\n\n    flipper-redis (~> 0.22.2) was resolved to 0.22.2, which depends on\n      flipper (~> 0.22.2)\n\nRunning `bundle update` will rebuild your snapshot from scratch, using only\nthe gems in your Gemfile, which may resolve the conflict.\n\n    at ChildProcess.exithandler (child_process.js:383:12)\n    at ChildProcess.emit (events.js:400:28)\n    at ChildProcess.emit (domain.js:475:12)\n    at maybeClose (internal/child_process.js:1058:16)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:293:5)"
+  }
+}
+DEBUG: Found new resolve matches - reattempting recursively(branch="renovate/flipper")
+{
+  "resolveMatches": [
+    "flipper-redis"
+  ],
+  "updatedDeps": [
+    {
+      "detectGlobalManagerConfig": false,
+      "detectHostRulesFromEnv": false,
+      "postUpgradeTasks": {
+        "commands": [],
+        "fileFilters": [],
+        "executionMode": "update"
+      },
+      "onboardingBranch": "renovate/configure",
+      "onboardingCommitMessage": null,
+      "onboardingConfigFileName": "renovate.json",
+      "onboardingNoDeps": true,
+      "onboardingPrTitle": "Configure Renovate",
+      "productLinks": {
+        "documentation": "https://docs.renovatebot.com/",
+        "help": "https://github.com/renovatebot/renovate/discussions",
+        "homepage": "https://github.com/renovatebot/renovate"
+      },
+      "globalExtends": [],
+      "draftPR": false,
+      "printConfig": false,
+      "composerIgnorePlatformReqs": [],
+      "logContext": null,
+      "dependencyDashboard": true,
+      "dependencyDashboardApproval": false,
+      "dependencyDashboardAutoclose": false,
+      "dependencyDashboardTitle": "Dependency Dashboard",
+      "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.",
+      "dependencyDashboardFooter": "\n- [ ] <!-- manual job -->Check this box to trigger a request for Renovate to run again on this repository\n",
+      "dependencyDashboardLabels": null,
+      "configWarningReuseIssue": true,
+      "timezone": null,
+      "schedule": [
+        "at any time"
+      ],
+      "automergeSchedule": [
+        "at any time"
+      ],
+      "updateNotScheduled": true,
+      "persistRepoData": false,
+      "ignorePlugins": false,
+      "ignoreScripts": false,
+      "npmrc": null,
+      "npmrcMerge": false,
+      "npmToken": null,
+      "updateLockFiles": true,
+      "skipInstalls": null,
+      "useBaseBranchConfig": "none",
+      "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+      "excludeCommitPaths": [],
+      "registryAliases": {},
+      "defaultRegistryUrls": null,
+      "registryUrls": [
+        "https://rubygems.org"
+      ],
+      "extractVersion": null,
+      "versioning": "ruby",
+      "azureWorkItemId": 0,
+      "azureAutoApprove": false,
+      "pinDigests": false,
+      "separateMajorMinor": true,
+      "separateMinorPatch": false,
+      "rangeStrategy": "update-lockfile",
+      "branchPrefix": "renovate/",
+      "branchPrefixOld": "renovate/",
+      "bumpVersion": null,
+      "semanticCommits": "disabled",
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps",
+      "rollbackPrs": false,
+      "recreateClosed": false,
+      "rebaseWhen": "auto",
+      "rebaseLabel": "rebase",
+      "stopUpdatingLabel": "stop-updating",
+      "stabilityDays": 0,
+      "internalChecksFilter": "none",
+      "prCreation": "immediate",
+      "prNotPendingHours": 25,
+      "prHourlyLimit": 0,
+      "prConcurrentLimit": 0,
+      "branchConcurrentLimit": null,
+      "prPriority": 0,
+      "bbUseDefaultReviewers": true,
+      "automerge": false,
+      "automergeType": "pr",
+      "automergeStrategy": "auto",
+      "automergeComment": "automergeComment",
+      "ignoreTests": false,
+      "transitiveRemediation": true,
+      "pruneBranchAfterAutomerge": true,
+      "branchName": "renovate/flipper",
+      "additionalBranchPrefix": "",
+      "branchTopic": "{{{groupSlug}}}",
+      "commitMessage": "Update flipper to v0.25.0",
+      "commitBody": null,
+      "commitBodyTable": false,
+      "commitMessagePrefix": null,
+      "commitMessageAction": "Update",
+      "commitMessageTopic": "{{{groupName}}}",
+      "commitMessageExtra": "to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}{{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+      "commitMessageSuffix": null,
+      "prBodyTemplate": "{{{header}}}{{{table}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}",
+      "prTitle": "Update flipper to v0.25.0",
+      "prHeader": "[![Mend Renovate](https://app.renovatebot.com/images/banner.svg)](https://renovatebot.com)",
+      "prFooter": "This PR has been generated by [Mend Renovate](https://www.mend.io/free-developer-tools/renovate/). View repository job log [here](https://app.renovatebot.com/dashboard#{{platform}}/{{repository}}).",
+      "hashedBranchLength": null,
+      "groupName": "flipper",
+      "groupSlug": "flipper",
+      "labels": [],
+      "addLabels": [],
+      "assignees": [],
+      "assigneesFromCodeOwners": false,
+      "assigneesSampleSize": null,
+      "assignAutomerge": false,
+      "reviewers": [],
+      "reviewersFromCodeOwners": false,
+      "filterUnavailableUsers": false,
+      "confidential": false,
+      "reviewersSampleSize": null,
+      "additionalReviewers": [],
+      "postUpdateOptions": [],
+      "constraints": {},
+      "prBodyDefinitions": {
+        "Package": "{{{depNameLinked}}}",
+        "Type": "{{{depType}}}",
+        "Update": "{{{updateType}}}",
+        "Current value": "{{{currentValue}}}",
+        "New value": "{{{newValue}}}",
+        "Change": "`{{{displayFrom}}}` -> `{{{displayTo}}}`",
+        "Pending": "{{{displayPending}}}",
+        "References": "{{{references}}}",
+        "Package file": "{{{packageFile}}}",
+        "Age": "[![age](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/age-slim)](https://docs.renovatebot.com/merge-confidence/)",
+        "Adoption": "[![adoption](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/adoption-slim)](https://docs.renovatebot.com/merge-confidence/)",
+        "Passing": "[![passing](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/compatibility-slim/{{{currentVersion}}})](https://docs.renovatebot.com/merge-confidence/)",
+        "Confidence": "[![confidence](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/confidence-slim/{{{currentVersion}}})](https://docs.renovatebot.com/merge-confidence/)"
+      },
+      "prBodyColumns": [
+        "Package",
+        "Type",
+        "Update",
+        "Change",
+        "Pending"
+      ],
+      "prBodyNotes": [],
+      "suppressNotifications": [
+        "deprecationWarningIssues"
+      ],
+      "pruneStaleBranches": true,
+      "unicodeEmoji": true,
+      "gitLabIgnoreApprovals": false,
+      "fetchReleaseNotes": true,
+      "cloneSubmodules": false,
+      "ignorePrAuthor": false,
+      "updatePinnedDependencies": true,
+      "writeDiscoveredRepos": null,
+      "platformAutomerge": false,
+      "userStrings": {
+        "ignoreTopic": "Renovate Ignore Notification",
+        "ignoreMajor": "As this PR has been closed unmerged, Renovate will ignore this upgrade and you will not receive PRs for *any* future {{{newMajor}}}.x releases. However, if you upgrade to {{{newMajor}}}.x manually then Renovate will reenable minor and patch updates automatically.",
+        "ignoreDigest": "As this PR has been closed unmerged, Renovate will ignore this upgrade and you will not receive PRs for the `{{{depName}}}` `{{{newDigestShort}}}` update again.",
+        "ignoreOther": "As this PR has been closed unmerged, Renovate will now ignore this update ({{{newValue}}}). You will still receive a PR once a newer version is released, so if you wish to permanently ignore this dependency, please add it to the `ignoreDeps` array of your renovate config."
+      },
+      "platformCommit": true,
+      "cacheNpmMinutes": 30,
+      "logFormat": "json",
+      "repository": "narwold/renovate-test",
+      "isGitHub": true,
+      "renovateUsername": "renovate[bot]",
+      "errors": [],
+      "warnings": [],
+      "branchList": [],
+      "defaultBranch": "main",
+      "isFork": false,
+      "baseBranch": "main",
+      "repoIsOnboarded": true,
+      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+      "renovateJsonPresent": true,
+      "dependencyDashboardChecks": {},
+      "language": "ruby",
+      "manager": "bundler",
+      "packageFile": "Gemfile",
+      "lockFiles": [
+        "Gemfile.lock"
+      ],
+      "parentDir": "",
+      "packageFileDir": "",
+      "depName": "flipper",
+      "managerData": {
+        "lineNumber": 4
+      },
+      "datasource": "rubygems",
+      "lockedVersion": "0.22.2",
+      "depIndex": 1,
+      "currentVersion": "0.22.2",
+      "isSingleVersion": true,
+      "fixedVersion": "0.22.2",
+      "bucket": "non-major",
+      "newVersion": "0.25.0",
+      "newMajor": 0,
+      "newMinor": 25,
+      "updateType": "minor",
+      "isRange": false,
+      "isLockfileUpdate": true,
+      "isMinor": true,
+      "depNameSanitized": "flipper",
+      "baseDeps": [
+        {
+          "depName": "ruby",
+          "currentValue": "2.7.3",
+          "datasource": "ruby-version",
+          "registryUrls": null,
+          "depIndex": 0,
+          "updates": [
+            {
+              "bucket": "non-major",
+              "newVersion": "2.7.6",
+              "newValue": "2.7.6",
+              "releaseTimestamp": "2022-04-12T00:00:00.000Z",
+              "newMajor": 2,
+              "newMinor": 7,
+              "updateType": "patch",
+              "branchName": "renovate/ruby-2.x"
+            },
+            {
+              "bucket": "major",
+              "newVersion": "3.1.2",
+              "newValue": "3.1.2",
+              "releaseTimestamp": "2022-04-12T00:00:00.000Z",
+              "newMajor": 3,
+              "newMinor": 1,
+              "updateType": "major",
+              "branchName": "renovate/ruby-3.x"
+            }
+          ],
+          "warnings": [],
+          "versioning": "ruby",
+          "sourceUrl": "https://github.com/ruby/ruby",
+          "homepage": "https://www.ruby-lang.org",
+          "currentVersion": "2.7.3",
+          "isSingleVersion": true,
+          "fixedVersion": "2.7.3"
+        },
+        {
+          "depName": "flipper",
+          "managerData": {
+            "lineNumber": 4
+          },
+          "datasource": "rubygems",
+          "lockedVersion": "0.22.2",
+          "depIndex": 1,
+          "updates": [
+            {
+              "bucket": "non-major",
+              "newVersion": "0.25.0",
+              "newMajor": 0,
+              "newMinor": 25,
+              "updateType": "minor",
+              "isRange": true,
+              "isLockfileUpdate": true,
+              "branchName": "renovate/flipper"
+            }
+          ],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.22.2",
+          "isSingleVersion": true,
+          "fixedVersion": "0.22.2"
+        },
+        {
+          "depName": "flipper-redis",
+          "managerData": {
+            "lineNumber": 5
+          },
+          "currentValue": "~> 0.22.2",
+          "datasource": "rubygems",
+          "lockedVersion": "0.22.2",
+          "depIndex": 2,
+          "updates": [
+            {
+              "bucket": "non-major",
+              "newVersion": "0.25.0",
+              "newValue": "~> 0.25.0",
+              "newMajor": 0,
+              "newMinor": 25,
+              "updateType": "minor",
+              "isRange": true,
+              "branchName": "renovate/flipper"
+            }
+          ],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.22.2",
+          "isSingleVersion": false,
+          "fixedVersion": "0.22.2"
+        },
+        {
+          "depName": "buildkite-test_collector",
+          "managerData": {
+            "lineNumber": 8
+          },
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "1.1.1",
+          "depIndex": 3,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "1.1.1",
+          "fixedVersion": "1.1.1"
+        },
+        {
+          "depName": "database_cleaner",
+          "managerData": {
+            "lineNumber": 9
+          },
+          "currentValue": "~> 2.0.1",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "2.0.1",
+          "depIndex": 4,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "2.0.1",
+          "fixedVersion": "2.0.1"
+        },
+        {
+          "depName": "factory_bot",
+          "managerData": {
+            "lineNumber": 10
+          },
+          "currentValue": "~> 6.2.1",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "6.2.1",
+          "depIndex": 5,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "6.2.1",
+          "fixedVersion": "6.2.1"
+        },
+        {
+          "depName": "rspec_junit_formatter",
+          "managerData": {
+            "lineNumber": 11
+          },
+          "currentValue": "~> 0.5.1",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "0.5.1",
+          "depIndex": 6,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.5.1",
+          "fixedVersion": "0.5.1"
+        },
+        {
+          "depName": "shoulda-matchers",
+          "managerData": {
+            "lineNumber": 12
+          },
+          "currentValue": "~> 5.1.0",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "5.1.0",
+          "depIndex": 7,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "5.1.0",
+          "fixedVersion": "5.1.0"
+        },
+        {
+          "depName": "simplecov",
+          "managerData": {
+            "lineNumber": 13
+          },
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "0.21.2",
+          "depIndex": 8,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.21.2",
+          "fixedVersion": "0.21.2"
+        },
+        {
+          "depName": "test-prof",
+          "managerData": {
+            "lineNumber": 14
+          },
+          "currentValue": "~> 1.0.9",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "1.0.9",
+          "depIndex": 9,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "1.0.9",
+          "fixedVersion": "1.0.9"
+        },
+        {
+          "depName": "timecop",
+          "managerData": {
+            "lineNumber": 15
+          },
+          "currentValue": "~> 0.9.5",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "0.9.5",
+          "depIndex": 10,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.9.5",
+          "fixedVersion": "0.9.5"
+        }
+      ],
+      "logJSON": null,
+      "displayFrom": "0.22.2",
+      "displayTo": "0.25.0",
+      "displayPending": "",
+      "prettyDepType": "dependency",
+      "isGroup": true
+    },
+    {
+      "detectGlobalManagerConfig": false,
+      "detectHostRulesFromEnv": false,
+      "postUpgradeTasks": {
+        "commands": [],
+        "fileFilters": [],
+        "executionMode": "update"
+      },
+      "onboardingBranch": "renovate/configure",
+      "onboardingCommitMessage": null,
+      "onboardingConfigFileName": "renovate.json",
+      "onboardingNoDeps": true,
+      "onboardingPrTitle": "Configure Renovate",
+      "productLinks": {
+        "documentation": "https://docs.renovatebot.com/",
+        "help": "https://github.com/renovatebot/renovate/discussions",
+        "homepage": "https://github.com/renovatebot/renovate"
+      },
+      "globalExtends": [],
+      "draftPR": false,
+      "printConfig": false,
+      "composerIgnorePlatformReqs": [],
+      "logContext": null,
+      "dependencyDashboard": true,
+      "dependencyDashboardApproval": false,
+      "dependencyDashboardAutoclose": false,
+      "dependencyDashboardTitle": "Dependency Dashboard",
+      "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.",
+      "dependencyDashboardFooter": "\n- [ ] <!-- manual job -->Check this box to trigger a request for Renovate to run again on this repository\n",
+      "dependencyDashboardLabels": null,
+      "configWarningReuseIssue": true,
+      "timezone": null,
+      "schedule": [
+        "at any time"
+      ],
+      "automergeSchedule": [
+        "at any time"
+      ],
+      "updateNotScheduled": true,
+      "persistRepoData": false,
+      "ignorePlugins": false,
+      "ignoreScripts": false,
+      "npmrc": null,
+      "npmrcMerge": false,
+      "npmToken": null,
+      "updateLockFiles": true,
+      "skipInstalls": null,
+      "useBaseBranchConfig": "none",
+      "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
+      "excludeCommitPaths": [],
+      "registryAliases": {},
+      "defaultRegistryUrls": null,
+      "registryUrls": [
+        "https://rubygems.org"
+      ],
+      "extractVersion": null,
+      "versioning": "ruby",
+      "azureWorkItemId": 0,
+      "azureAutoApprove": false,
+      "pinDigests": false,
+      "separateMajorMinor": true,
+      "separateMinorPatch": false,
+      "rangeStrategy": "update-lockfile",
+      "branchPrefix": "renovate/",
+      "branchPrefixOld": "renovate/",
+      "bumpVersion": null,
+      "semanticCommits": "disabled",
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps",
+      "rollbackPrs": false,
+      "recreateClosed": false,
+      "rebaseWhen": "auto",
+      "rebaseLabel": "rebase",
+      "stopUpdatingLabel": "stop-updating",
+      "stabilityDays": 0,
+      "internalChecksFilter": "none",
+      "prCreation": "immediate",
+      "prNotPendingHours": 25,
+      "prHourlyLimit": 0,
+      "prConcurrentLimit": 0,
+      "branchConcurrentLimit": null,
+      "prPriority": 0,
+      "bbUseDefaultReviewers": true,
+      "automerge": false,
+      "automergeType": "pr",
+      "automergeStrategy": "auto",
+      "automergeComment": "automergeComment",
+      "ignoreTests": false,
+      "transitiveRemediation": true,
+      "pruneBranchAfterAutomerge": true,
+      "branchName": "renovate/flipper",
+      "additionalBranchPrefix": "",
+      "branchTopic": "{{{groupSlug}}}",
+      "commitMessage": "Update flipper to ~> 0.25.0",
+      "commitBody": null,
+      "commitBodyTable": false,
+      "commitMessagePrefix": null,
+      "commitMessageAction": "Update",
+      "commitMessageTopic": "{{{groupName}}}",
+      "commitMessageExtra": "to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}v{{{newMajor}}}{{else}}{{#if isSingleVersion}}v{{{newVersion}}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+      "commitMessageSuffix": null,
+      "prBodyTemplate": "{{{header}}}{{{table}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}",
+      "prTitle": "Update flipper to ~> 0.25.0",
+      "prHeader": "[![Mend Renovate](https://app.renovatebot.com/images/banner.svg)](https://renovatebot.com)",
+      "prFooter": "This PR has been generated by [Mend Renovate](https://www.mend.io/free-developer-tools/renovate/). View repository job log [here](https://app.renovatebot.com/dashboard#{{platform}}/{{repository}}).",
+      "hashedBranchLength": null,
+      "groupName": "flipper",
+      "groupSlug": "flipper",
+      "labels": [],
+      "addLabels": [],
+      "assignees": [],
+      "assigneesFromCodeOwners": false,
+      "assigneesSampleSize": null,
+      "assignAutomerge": false,
+      "reviewers": [],
+      "reviewersFromCodeOwners": false,
+      "filterUnavailableUsers": false,
+      "confidential": false,
+      "reviewersSampleSize": null,
+      "additionalReviewers": [],
+      "postUpdateOptions": [],
+      "constraints": {},
+      "prBodyDefinitions": {
+        "Package": "{{{depNameLinked}}}",
+        "Type": "{{{depType}}}",
+        "Update": "{{{updateType}}}",
+        "Current value": "{{{currentValue}}}",
+        "New value": "{{{newValue}}}",
+        "Change": "`{{{displayFrom}}}` -> `{{{displayTo}}}`",
+        "Pending": "{{{displayPending}}}",
+        "References": "{{{references}}}",
+        "Package file": "{{{packageFile}}}",
+        "Age": "[![age](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/age-slim)](https://docs.renovatebot.com/merge-confidence/)",
+        "Adoption": "[![adoption](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/adoption-slim)](https://docs.renovatebot.com/merge-confidence/)",
+        "Passing": "[![passing](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/compatibility-slim/{{{currentVersion}}})](https://docs.renovatebot.com/merge-confidence/)",
+        "Confidence": "[![confidence](https://badges.renovateapi.com/packages/{{datasource}}/{{replace '/' '%2f' depName}}/{{{newVersion}}}/confidence-slim/{{{currentVersion}}})](https://docs.renovatebot.com/merge-confidence/)"
+      },
+      "prBodyColumns": [
+        "Package",
+        "Type",
+        "Update",
+        "Change",
+        "Pending"
+      ],
+      "prBodyNotes": [],
+      "suppressNotifications": [
+        "deprecationWarningIssues"
+      ],
+      "pruneStaleBranches": true,
+      "unicodeEmoji": true,
+      "gitLabIgnoreApprovals": false,
+      "fetchReleaseNotes": true,
+      "cloneSubmodules": false,
+      "ignorePrAuthor": false,
+      "updatePinnedDependencies": true,
+      "writeDiscoveredRepos": null,
+      "platformAutomerge": false,
+      "userStrings": {
+        "ignoreTopic": "Renovate Ignore Notification",
+        "ignoreMajor": "As this PR has been closed unmerged, Renovate will ignore this upgrade and you will not receive PRs for *any* future {{{newMajor}}}.x releases. However, if you upgrade to {{{newMajor}}}.x manually then Renovate will reenable minor and patch updates automatically.",
+        "ignoreDigest": "As this PR has been closed unmerged, Renovate will ignore this upgrade and you will not receive PRs for the `{{{depName}}}` `{{{newDigestShort}}}` update again.",
+        "ignoreOther": "As this PR has been closed unmerged, Renovate will now ignore this update ({{{newValue}}}). You will still receive a PR once a newer version is released, so if you wish to permanently ignore this dependency, please add it to the `ignoreDeps` array of your renovate config."
+      },
+      "platformCommit": true,
+      "cacheNpmMinutes": 30,
+      "logFormat": "json",
+      "repository": "narwold/renovate-test",
+      "isGitHub": true,
+      "renovateUsername": "renovate[bot]",
+      "errors": [],
+      "warnings": [],
+      "branchList": [],
+      "defaultBranch": "main",
+      "isFork": false,
+      "baseBranch": "main",
+      "repoIsOnboarded": true,
+      "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+      "renovateJsonPresent": true,
+      "dependencyDashboardChecks": {},
+      "language": "ruby",
+      "manager": "bundler",
+      "packageFile": "Gemfile",
+      "lockFiles": [
+        "Gemfile.lock"
+      ],
+      "parentDir": "",
+      "packageFileDir": "",
+      "depName": "flipper-redis",
+      "managerData": {
+        "lineNumber": 5
+      },
+      "currentValue": "~> 0.22.2",
+      "datasource": "rubygems",
+      "lockedVersion": "0.22.2",
+      "depIndex": 2,
+      "currentVersion": "0.22.2",
+      "isSingleVersion": false,
+      "fixedVersion": "0.22.2",
+      "bucket": "non-major",
+      "newVersion": "0.25.0",
+      "newValue": "~> 0.25.0",
+      "newMajor": 0,
+      "newMinor": 25,
+      "updateType": "minor",
+      "isRange": false,
+      "isMinor": true,
+      "depNameSanitized": "flipper-redis",
+      "baseDeps": [
+        {
+          "depName": "ruby",
+          "currentValue": "2.7.3",
+          "datasource": "ruby-version",
+          "registryUrls": null,
+          "depIndex": 0,
+          "updates": [
+            {
+              "bucket": "non-major",
+              "newVersion": "2.7.6",
+              "newValue": "2.7.6",
+              "releaseTimestamp": "2022-04-12T00:00:00.000Z",
+              "newMajor": 2,
+              "newMinor": 7,
+              "updateType": "patch",
+              "branchName": "renovate/ruby-2.x"
+            },
+            {
+              "bucket": "major",
+              "newVersion": "3.1.2",
+              "newValue": "3.1.2",
+              "releaseTimestamp": "2022-04-12T00:00:00.000Z",
+              "newMajor": 3,
+              "newMinor": 1,
+              "updateType": "major",
+              "branchName": "renovate/ruby-3.x"
+            }
+          ],
+          "warnings": [],
+          "versioning": "ruby",
+          "sourceUrl": "https://github.com/ruby/ruby",
+          "homepage": "https://www.ruby-lang.org",
+          "currentVersion": "2.7.3",
+          "isSingleVersion": true,
+          "fixedVersion": "2.7.3"
+        },
+        {
+          "depName": "flipper",
+          "managerData": {
+            "lineNumber": 4
+          },
+          "datasource": "rubygems",
+          "lockedVersion": "0.22.2",
+          "depIndex": 1,
+          "updates": [
+            {
+              "bucket": "non-major",
+              "newVersion": "0.25.0",
+              "newMajor": 0,
+              "newMinor": 25,
+              "updateType": "minor",
+              "isRange": true,
+              "isLockfileUpdate": true,
+              "branchName": "renovate/flipper"
+            }
+          ],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.22.2",
+          "isSingleVersion": true,
+          "fixedVersion": "0.22.2"
+        },
+        {
+          "depName": "flipper-redis",
+          "managerData": {
+            "lineNumber": 5
+          },
+          "currentValue": "~> 0.22.2",
+          "datasource": "rubygems",
+          "lockedVersion": "0.22.2",
+          "depIndex": 2,
+          "updates": [
+            {
+              "bucket": "non-major",
+              "newVersion": "0.25.0",
+              "newValue": "~> 0.25.0",
+              "newMajor": 0,
+              "newMinor": 25,
+              "updateType": "minor",
+              "isRange": true,
+              "branchName": "renovate/flipper"
+            }
+          ],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.22.2",
+          "isSingleVersion": false,
+          "fixedVersion": "0.22.2"
+        },
+        {
+          "depName": "buildkite-test_collector",
+          "managerData": {
+            "lineNumber": 8
+          },
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "1.1.1",
+          "depIndex": 3,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "1.1.1",
+          "fixedVersion": "1.1.1"
+        },
+        {
+          "depName": "database_cleaner",
+          "managerData": {
+            "lineNumber": 9
+          },
+          "currentValue": "~> 2.0.1",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "2.0.1",
+          "depIndex": 4,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "2.0.1",
+          "fixedVersion": "2.0.1"
+        },
+        {
+          "depName": "factory_bot",
+          "managerData": {
+            "lineNumber": 10
+          },
+          "currentValue": "~> 6.2.1",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "6.2.1",
+          "depIndex": 5,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "6.2.1",
+          "fixedVersion": "6.2.1"
+        },
+        {
+          "depName": "rspec_junit_formatter",
+          "managerData": {
+            "lineNumber": 11
+          },
+          "currentValue": "~> 0.5.1",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "0.5.1",
+          "depIndex": 6,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.5.1",
+          "fixedVersion": "0.5.1"
+        },
+        {
+          "depName": "shoulda-matchers",
+          "managerData": {
+            "lineNumber": 12
+          },
+          "currentValue": "~> 5.1.0",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "5.1.0",
+          "depIndex": 7,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "5.1.0",
+          "fixedVersion": "5.1.0"
+        },
+        {
+          "depName": "simplecov",
+          "managerData": {
+            "lineNumber": 13
+          },
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "0.21.2",
+          "depIndex": 8,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.21.2",
+          "fixedVersion": "0.21.2"
+        },
+        {
+          "depName": "test-prof",
+          "managerData": {
+            "lineNumber": 14
+          },
+          "currentValue": "~> 1.0.9",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "1.0.9",
+          "depIndex": 9,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "1.0.9",
+          "fixedVersion": "1.0.9"
+        },
+        {
+          "depName": "timecop",
+          "managerData": {
+            "lineNumber": 15
+          },
+          "currentValue": "~> 0.9.5",
+          "datasource": "rubygems",
+          "depTypes": [
+            "test"
+          ],
+          "lockedVersion": "0.9.5",
+          "depIndex": 10,
+          "updates": [],
+          "warnings": [],
+          "versioning": "ruby",
+          "currentVersion": "0.9.5",
+          "fixedVersion": "0.9.5"
+        }
+      ],
+      "logJSON": null,
+      "displayFrom": "~> 0.22.2",
+      "displayTo": "~> 0.25.0",
+      "displayPending": "",
+      "prettyDepType": "dependency",
+      "isGroup": true
+    }
+  ]
+}
+DEBUG: bundler.updateArtifacts(Gemfile)(branch="renovate/flipper")
+DEBUG: Using bundler version specified in lockfile(branch="renovate/flipper")
+DEBUG: Using ruby version from gemfile(branch="renovate/flipper")
+DEBUG: Using docker to execute(branch="renovate/flipper")
+{
+  "image": "ruby"
+}
+DEBUG: Found version constraint - checking for a compatible image to use(branch="renovate/flipper")
+{
+  "depName": "docker.io/renovate/ruby",
+  "scheme": "ruby",
+  "constraint": "2.7.3"
+}
+DEBUG: Found compatible image version(branch="renovate/flipper")
+{
+  "depName": "docker.io/renovate/ruby",
+  "scheme": "ruby",
+  "constraint": "2.7.3",
+  "version": "2.7.3"
+}
+DEBUG: Resolved tag constraint(branch="renovate/flipper")
+{
+  "image": "docker.io/renovate/ruby",
+  "tagConstraint": "2.7.3",
+  "tagVersioning": "ruby",
+  "tag": "2.7.3"
+}
+DEBUG: Docker image is already prefetched: docker.io/renovate/ruby:2.7.3@sha256:31a16968fab3cdce0cbff9ae9cc4e5276a52e3a4715226f142953c566d1b9741(branch="renovate/flipper")
+DEBUG: Executing command(branch="renovate/flipper")
+{
+  "command": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis undefined\""
+}
+DEBUG: rawExec err(branch="renovate/flipper")
+{
+  "err": {
+    "killed": false,
+    "code": 7,
+    "signal": null,
+    "cmd": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis undefined\"",
+    "stdout": "Installing v1 tool bundler v2.2.27\nSuccessfully installed bundler-2.2.27\n1 gem installed\nBundler version 2.2.27\nInstalled v1 bundler in 4 seconds\nruby 2.7.3p183 (2021-04-05 revision 6847ee089d) [x86_64-linux]\n",
+    "stderr": "Could not find gem 'undefined'.\n",
+    "message": "Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis undefined\"\nCould not find gem 'undefined'.\n",
+    "stack": "Error: Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis undefined\"\nCould not find gem 'undefined'.\n\n    at ChildProcess.exithandler (child_process.js:383:12)\n    at ChildProcess.emit (events.js:400:28)\n    at ChildProcess.emit (domain.js:475:12)\n    at maybeClose (internal/child_process.js:1058:16)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:293:5)"
+  }
+}
+INFO: Gemfile.lock update failed due to an unknown reason(branch="renovate/flipper")
+{
+  "err": {
+    "killed": false,
+    "code": 7,
+    "signal": null,
+    "cmd": "docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis undefined\"",
+    "stdout": "Installing v1 tool bundler v2.2.27\nSuccessfully installed bundler-2.2.27\n1 gem installed\nBundler version 2.2.27\nInstalled v1 bundler in 4 seconds\nruby 2.7.3p183 (2021-04-05 revision 6847ee089d) [x86_64-linux]\n",
+    "stderr": "Could not find gem 'undefined'.\n",
+    "message": "Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis undefined\"\nCould not find gem 'undefined'.\n",
+    "stack": "Error: Command failed: docker run --rm --name=renovate_ruby --label=renovate_child -v \"/mnt/renovate/gh/narwold/renovate-test\":\"/mnt/renovate/gh/narwold/renovate-test\" -v \"/tmp/renovate-cache\":\"/tmp/renovate-cache\" -e BUNDLE_GITHUB__COM -e GEM_HOME -w \"/mnt/renovate/gh/narwold/renovate-test\" docker.io/renovate/ruby:2.7.3 bash -l -c \"install-tool bundler 2.2.27 && ruby --version && bundler lock --update flipper flipper-redis undefined\"\nCould not find gem 'undefined'.\n\n    at ChildProcess.exithandler (child_process.js:383:12)\n    at ChildProcess.emit (events.js:400:28)\n    at ChildProcess.emit (domain.js:475:12)\n    at maybeClose (internal/child_process.js:1058:16)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:293:5)"
+  }
+}
+DEBUG: Updated 2 package files(branch="renovate/flipper")
+DEBUG: Updated 1 lock files(branch="renovate/flipper")
+{
+  "updatedArtifacts": [
+    "Gemfile.lock"
+  ]
+}
+DEBUG: PR has no releaseTimestamp(branch="renovate/flipper")
+DEBUG: 2 file(s) to commit(branch="renovate/flipper")
+DEBUG: Preparing files for committing to branch renovate/flipper(branch="renovate/flipper")
+DEBUG: git commit(branch="renovate/flipper")
+{
+  "deletedFiles": [],
+  "ignoredFiles": [],
+  "result": {
+    "author": null,
+    "branch": "renovate/flipper",
+    "commit": "b37bdaab6176e328736157a0558efe998a6921e0",
+    "root": false,
+    "summary": {
+      "changes": 1,
+      "insertions": 6,
+      "deletions": 0
+    }
+  }
+}
+DEBUG: Fetching branch renovate/flipper(branch="renovate/flipper")
+INFO: Branch created(branch="renovate/flipper")
+{
+  "commitSha": "b37bdaab6176e328736157a0558efe998a6921e0"
+}
+DEBUG: Updating status check state to failed(branch="renovate/flipper")
+DEBUG: Setting branch status(branch="renovate/flipper")
+{
+  "context": "renovate/artifacts",
+  "state": "red"
+}
+DEBUG: Ensuring PR(branch="renovate/flipper")
+DEBUG: There are 0 errors and 0 warnings(branch="renovate/flipper")
+DEBUG: getBranchPr(renovate/flipper)(branch="renovate/flipper")
+DEBUG: findPr(renovate/flipper, undefined, open)(branch="renovate/flipper")
+DEBUG: findPr(renovate/flipper, undefined, closed)(branch="renovate/flipper")
+DEBUG: Found PR #1(branch="renovate/flipper")
+DEBUG: Forcing PR because of artifact errors(branch="renovate/flipper")
+DEBUG: Creating PR(branch="renovate/flipper")
+{
+  "prTitle": "Update flipper to v0.25.0"
+}
+DEBUG: Creating PR(branch="renovate/flipper")
+{
+  "title": "Update flipper to v0.25.0",
+  "head": "narwold:renovate/flipper",
+  "base": "main",
+  "draft": false
+}
+DEBUG: PR created(branch="renovate/flipper")
+{
+  "pr": 5,
+  "draft": false
+}
+DEBUG: Adding labels '' to #5(branch="renovate/flipper")
+INFO: PR created(branch="renovate/flipper")
+{
+  "pr": 5,
+  "prTitle": "Update flipper to v0.25.0"
+}
+DEBUG: addParticipants(pr=5)(branch="renovate/flipper")
+DEBUG: Created Pull Request #5(branch="renovate/flipper")
+WARN: artifactErrors(branch="renovate/flipper")
+{
+  "artifactErrors": [
+    {
+      "lockFile": "Gemfile.lock",
+      "stderr": "Installing v1 tool bundler v2.2.27\nSuccessfully installed bundler-2.2.27\n1 gem installed\nBundler version 2.2.27\nInstalled v1 bundler in 4 seconds\nruby 2.7.3p183 (2021-04-05 revision 6847ee089d) [x86_64-linux]\n\nCould not find gem 'undefined'.\n"
+    }
+  ]
+}
+DEBUG: Getting comments for #5(branch="renovate/flipper")
+DEBUG: Found 0 comments(branch="renovate/flipper")
+DEBUG: Ensuring comment "⚠ Artifact update problem" in #5(branch="renovate/flipper")
+INFO: Comment added(branch="renovate/flipper")
+{
+  "issueNo": 5,
+  "topic": "⚠ Artifact update problem"
+}
+DEBUG: getBranchPr(renovate/ruby-3.x)(branch="renovate/ruby-3.x")
+DEBUG: findPr(renovate/ruby-3.x, undefined, open)(branch="renovate/ruby-3.x")
+DEBUG: Found PR #4(branch="renovate/ruby-3.x")
+DEBUG: branchExists=true(branch="renovate/ruby-3.x")
+DEBUG: dependencyDashboardCheck=undefined(branch="renovate/ruby-3.x")
+DEBUG: PR rebase requested=false(branch="renovate/ruby-3.x")
+DEBUG: Checking if PR has been edited(branch="renovate/ruby-3.x")
+DEBUG: Branch has not been modified(branch="renovate/ruby-3.x")
+{
+  "branchName": "renovate/ruby-3.x"
+}
+DEBUG: Found existing branch PR(branch="renovate/ruby-3.x")
+DEBUG: Checking schedule(at any time, null)(branch="renovate/ruby-3.x")
+DEBUG: No schedule defined(branch="renovate/ruby-3.x")
+DEBUG: Setting current branch to main(branch="renovate/ruby-3.x")
+DEBUG: latest commit(branch="renovate/ruby-3.x")
+{
+  "branchName": "main",
+  "latestCommitDate": "2022-07-01T15:25:48-04:00"
+}
+DEBUG: Branch already exists(branch="renovate/ruby-3.x")
+DEBUG: getBranchPr(renovate/ruby-3.x)(branch="renovate/ruby-3.x")
+DEBUG: findPr(renovate/ruby-3.x, undefined, open)(branch="renovate/ruby-3.x")
+DEBUG: Found PR #4(branch="renovate/ruby-3.x")
+DEBUG: Skipping stale branch check due to rebaseWhen=auto(branch="renovate/ruby-3.x")
+DEBUG: isBranchConflicted(main, renovate/ruby-3.x)(branch="renovate/ruby-3.x")
+DEBUG: Branch does not need rebasing(branch="renovate/ruby-3.x")
+DEBUG: Using reuseExistingBranch: true(branch="renovate/ruby-3.x")
+DEBUG: manager.getUpdatedPackageFiles() reuseExistinbranch=true(branch="renovate/ruby-3.x")
+DEBUG: Found Gemfile.lock file(packageFile="Gemfile", branch="renovate/ruby-3.x")
+DEBUG: Found Gemfile.lock file(packageFile="Gemfile", branch="renovate/ruby-3.x")
+DEBUG: Branch dep is already updated(packageFile="Gemfile", branch="renovate/ruby-3.x")
+{
+  "depName": "ruby"
+}
+DEBUG: No content changed(packageFile="Gemfile", branch="renovate/ruby-3.x")
+{
+  "depName": "ruby"
+}
+DEBUG: No package files need updating(branch="renovate/ruby-3.x")
+DEBUG: No updated lock files in branch(branch="renovate/ruby-3.x")
+DEBUG: No files to commit(branch="renovate/ruby-3.x")
+DEBUG: Checking if we can automerge branch(branch="renovate/ruby-3.x")
+DEBUG: mergeStatus=no automerge(branch="renovate/ruby-3.x")
+DEBUG: Ensuring PR(branch="renovate/ruby-3.x")
+DEBUG: There are 0 errors and 0 warnings(branch="renovate/ruby-3.x")
+DEBUG: getBranchPr(renovate/ruby-3.x)(branch="renovate/ruby-3.x")
+DEBUG: findPr(renovate/ruby-3.x, undefined, open)(branch="renovate/ruby-3.x")
+DEBUG: Found PR #4(branch="renovate/ruby-3.x")
+DEBUG: Found existing PR(branch="renovate/ruby-3.x")
+DEBUG: Processing existing PR(branch="renovate/ruby-3.x")
+DEBUG: Pull Request #4 does not need updating(branch="renovate/ruby-3.x")
+DEBUG: PR is not configured for automerge(branch="renovate/ruby-3.x")
+DEBUG: getBranchPr(renovate/ruby-2.x)
+DEBUG: findPr(renovate/ruby-2.x, undefined, open)
+DEBUG: Found PR #3
+DEBUG: getBranchPr(renovate/flipper)
+DEBUG: findPr(renovate/flipper, undefined, open)
+DEBUG: Found PR #5
+DEBUG: getBranchPr(renovate/ruby-3.x)
+DEBUG: findPr(renovate/ruby-3.x, undefined, open)
+DEBUG: Found PR #4
+DEBUG: Ensuring Dependency Dashboard
+DEBUG: ensureIssue(Dependency Dashboard)
+DEBUG: Reopening previously closed issue
+DEBUG: Patching issue
+DEBUG: Issue updated
+DEBUG: Removing any stale branches
+DEBUG: config.repoIsOnboarded=true
+DEBUG: Branch lists
+{
+  "branchList": [
+    "renovate/flipper",
+    "renovate/ruby-2.x",
+    "renovate/ruby-3.x"
+  ],
+  "renovateBranches": [
+    "renovate/flipper",
+    "renovate/ruby-2.x",
+    "renovate/ruby-3.x"
+  ]
+}
+DEBUG: remainingBranches=
+DEBUG: No branches to clean up
+DEBUG: Cleaning up Renovate refs: refs/renovate/*
+DEBUG: PackageFiles.clear() - Package files deleted
+{
+  "baseBranches": [
+    "main"
+  ]
+}
+DEBUG: Renovate repository PR statistics
+{
+  "stats": {
+    "total": 4,
+    "open": 3,
+    "closed": 1,
+    "merged": 0
+  }
+}
+DEBUG: Repository result: done, status: onboarded, enabled: true, onboarded: true
+DEBUG: Repository timing splits (milliseconds)
+{
+  "splits": {
+    "init": 1793,
+    "extract": 1939,
+    "lookup": 2004,
+    "update": 62898
+  },
+  "total": 71651
+}
+DEBUG: http statistics
+{
+  "urls": {
+    "https://api.github.com/graphql (POST,200)": 2,
+    "https://api.github.com/repos/narwold/renovate-test/branches/main/protection (GET,404)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/commits/b37bdaab6176e328736157a0558efe998a6921e0/statuses (GET,200)": 2,
+    "https://api.github.com/repos/narwold/renovate-test/commits/renovate/flipper/status (GET,200)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/contents/renovate.json (GET,200)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/git/commits (POST,201)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/git/refs (POST,201)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/git/trees (POST,201)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/issues/2 (GET,200)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/issues/2 (PATCH,200)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/issues/5/comments (GET,200)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/issues/5/comments (POST,201)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/pulls (GET,200)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/pulls (POST,201)": 1,
+    "https://api.github.com/repos/narwold/renovate-test/statuses/b37bdaab6176e328736157a0558efe998a6921e0 (POST,201)": 1,
+    "https://api.github.com/repos/renovatebot/spring-remediations/contents/base.json (GET,200)": 1,
+    "https://api.github.com/repos/renovatebot/spring-remediations/contents/default.json (GET,200)": 1,
+    "https://api.github.com/repos/ruby/ruby (GET,200)": 1,
+    "https://api.github.com/repos/ruby/ruby/git/trees/master (GET,200)": 1,
+    "https://api.github.com/repos/whitesource/merge-confidence/contents/beta.json (GET,200)": 1
+  },
+  "hostStats": {
+    "api.github.com": {
+      "requestCount": 22,
+      "requestAvgMs": 369,
+      "queueAvgMs": 0
+    }
+  },
+  "totalRequests": 22
+}
+INFO: Repository finished
+{
+  "durationMs": 71651
+}
