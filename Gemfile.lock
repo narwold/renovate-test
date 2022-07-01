@@ -53,6 +53,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   buildkite-test_collector
@@ -67,7 +68,7 @@ DEPENDENCIES
   timecop (~> 0.9.5)
 
 RUBY VERSION
-   ruby 2.7.3p183
+   ruby 2.7.6p219
 
 BUNDLED WITH
    2.2.27
