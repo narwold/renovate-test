@@ -45,6 +45,5 @@
   "branchPrefix": "renovate/",
   "prHourlyLimit": 6,
   "separateMajorMinor": true,
-  "dependencyDashboard": true,
-  "postUpdateOptions": ["bundlerConservative"]
+  "dependencyDashboard": true
 }
