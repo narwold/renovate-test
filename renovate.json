@@ -7,6 +7,6 @@
       "groupName": "flipper"
     }
   ],
-  "rangeStrategy": "replace",
+  "rangeStrategy": "update-lockfile",
   "dependencyDashboard": true
 }
