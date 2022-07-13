@@ -1,12 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabledManagers": ["bundler"],
-  "packageRules": [
-    {
-      "matchPackageNames": ["flipper", "flipper-redis"],
-      "groupName": "flipper"
-    }
-  ],
   "rangeStrategy": "update-lockfile",
   "dependencyDashboard": true
 }
