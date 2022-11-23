@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.3'
 
-gem 'flipper'
+gem 'flipper', '~> 0.22.2'
 gem 'flipper-redis', '~> 0.22.2'
 
 group :test do
