@@ -31,7 +31,7 @@ GEM
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     minitest (5.16.1)
-    redis (4.7.1)
+    redis (4.8.0)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
@@ -52,6 +52,7 @@ GEM
     websocket (1.2.9)
 
 PLATFORMS
+  ruby
   x86_64-darwin-18
 
 DEPENDENCIES
