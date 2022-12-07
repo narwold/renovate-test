@@ -12,7 +12,7 @@ group :test do
   gem 'rspec_junit_formatter', '~> 0.5.1'
   gem 'shoulda-matchers', '~> 5.1.0'
   gem 'simplecov', require: false
-  gem 'test-prof', '~> 1.0.9'
+  gem 'test-prof', '~> 1.1.0'
   gem 'timecop', '~> 0.9.5'
 end
 

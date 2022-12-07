@@ -45,7 +45,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    test-prof (1.0.9)
+    test-prof (1.1.0)
     timecop (0.9.5)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -53,6 +53,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   buildkite-test_collector
@@ -63,7 +64,7 @@ DEPENDENCIES
   rspec_junit_formatter (~> 0.5.1)
   shoulda-matchers (~> 5.1.0)
   simplecov
-  test-prof (~> 1.0.9)
+  test-prof (~> 1.1.0)
   timecop (~> 0.9.5)
 
 RUBY VERSION
