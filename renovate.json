@@ -6,7 +6,7 @@
       "groupName": "flipper"
     }
   ],
-  "enabledManagers": ["bundler"],
+  "enabledManagers": ["bundler", "npm"],
   "rangeStrategy": "update-lockfile",
   "dependencyDashboard": true
 }
