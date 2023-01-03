@@ -6,7 +6,7 @@
       "groupName": "flipper"
     }
   ],
-  "enabledManagers": ["bundler", "npm"],
+  "enabledManagers": ["bundler", "npm", "regex"],
   "rangeStrategy": "update-lockfile",
   "dependencyDashboard": true,
   "regexManagers": [
