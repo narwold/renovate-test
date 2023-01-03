@@ -4,6 +4,10 @@
     {
       "matchPackageNames": ["flipper", "flipper-redis"],
       "groupName": "flipper"
+    },
+    {
+      "matchPaths: "**/*.gemspec",
+      "addLabels": ["gemspec"]
     }
   ],
   "enabledManagers": ["bundler", "npm", "regex"],
@@ -18,8 +22,7 @@
         ".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?"
       ],
       "datasourceTemplate": "rubygems",
-      "versioningTemplate": "ruby",
-      "addLabels": ["gemspec"]
+      "versioningTemplate": "ruby"
     }
   ]
 }
