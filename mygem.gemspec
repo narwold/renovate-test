@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'jsonapi-serializer', '~> 2.2.0'
   spec.add_dependency 'mysql2'
   spec.add_dependency 'pundit', '~> 2.3.0'
-  spec.add_dependency 'rails', '~> 6.1.6.1'
+  spec.add_dependency 'rails', '~> 6.1.7.0'
 
   spec.add_development_dependency 'appraisal'
   spec.add_development_dependency 'factory_bot'
