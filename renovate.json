@@ -10,14 +10,15 @@
       "addLabels": ["gemspec"]
     }
   ],
-  "enabledManagers": ["bundler", "npm", "regex"],
+  "enabledManagers": ["bundler", "npm", "regex", "pip-compile"],
   "rangeStrategy": "update-lockfile",
   "dependencyDashboard": true,
+  "pip-compile": {
+    "fileMatch": ["(^|/)pyproject\\.toml$"]
+  },
   "regexManagers": [
     {
-      "fileMatch": [
-        "^*.gemspec"
-      ],
+      "fileMatch": ["^*.gemspec"],
       "matchStrings": [
         ".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?"
       ],
