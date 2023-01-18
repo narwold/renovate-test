@@ -1,29 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "packageRules": [
-    {
-      "matchPackageNames": ["flipper", "flipper-redis"],
-      "groupName": "flipper"
-    },
-    {
-      "matchPaths": ["**/*.gemspec"],
-      "addLabels": ["gemspec"]
-    }
-  ],
-  "enabledManagers": ["pip-compile", "npm"],
-  "rangeStrategy": "update-lockfile",
+  "enabledManagers": ["npm", "pip-compile", "bundler"],
   "dependencyDashboard": true,
   "pip-compile": {
     "fileMatch": ["(^|/)pyproject\\.toml$"]
-  },
-  "regexManagers": [
-    {
-      "fileMatch": ["^*.gemspec"],
-      "matchStrings": [
-        ".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?"
-      ],
-      "datasourceTemplate": "rubygems",
-      "versioningTemplate": "ruby"
-    }
-  ]
+  }
 }
