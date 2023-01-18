@@ -1,0 +1,170 @@
+[project]
+name = "underwriting-server"
+description = "Underwriting services, including the realtime rating engine."
+authors = [
+    { name = "John Christopher Jones", email = "john.jones@beam.dental" },
+]
+dependencies = [
+    "fastapi>=0.88.0",
+    "pydantic>=1.9.1",
+    "python-dateutil>=2.8.2",
+    "typing-extensions>=4.3.0",
+    "uvicorn>=0.20.0",
+    "pandas>=1.4.3",
+    "datadog>=0.44.0",
+    "ddtrace>=1.6.3",
+    "httpx>=0.23.0",
+    "python-json-logger>=2.0.4",
+    "python-multipart>=0.0.5",
+    "rollbar>=0.16.3",
+    "dvc[s3]>=2.35.2",
+    "fastapi-health>=0.4.0",
+]
+requires-python = ">=3.10,<3.12"
+readme = "docs/README.md"
+license = { text = "UNLICENSED" }
+dynamic = ["version"]
+urls.homepage = "https://github.com/beamtech/underwriting-server"
+urls.awms-model = "https://github.com/beamtech/awms-model"
+
+[project.optional-dependencies]
+cli = [
+    "typer>=0.6.1",
+]
+excel = [
+    "openpyxl>=3.0.10",
+    "pyxlsb>=1.0.10",
+]
+gcp = [
+    "google-cloud-bigquery>=2.6.1",
+    "google-cloud-storage>=2.1.0",
+]
+scipy = [
+    "jupyter>=1.0.0",
+    "matplotlib>=3.5.3",
+    "scipy>=1.9.3",
+    "scikit-learn>=1.1.3",
+]
+sql = [
+    "alembic>=1.8.1",
+    "mysqlclient>=2.1.1",
+    "sqlalchemy>=1.4.39",
+]
+
+[project.scripts]
+uw = "beam.underwriting.cli.__main__:cli"
+
+[tool.pdm]
+
+[tool.pdm.build]
+includes = ["src", "docs/**/*"]
+
+[tool.pdm.version]
+source = "scm"
+write_to = "beam/underwriting/__version__.py"
+write_template = "__version__ = '{}'"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black>=22.10.0",
+    "buildkite-test-collector>=0.1.1",
+    "coveralls>=3.3.1",
+    "devtools[pygments]>=0.9.0",
+    "flake8>=5.0.4",
+    "isort>=5.10.1",
+    "mypy>=0.982",
+    "pylint-pydantic>=0.1.4",
+    "pylint-pytest>=1.1.2",
+    "pylint>=2.15.5",
+    "pytest-cov[toml]>=4.0.0",
+    "pytest-mypy>=0.10.0",
+    "pytest>=7.2.0",
+]
+profiling = [
+    "pytest-profiling>=1.7.0",
+    "snakeviz>=2.1.1",
+]
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+
+[tool.mypy]
+files = ["src/beam", "src/awms_model/app", "test/"]
+ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
+
+
+[tool.pdm.scripts]
+_.env.APP = "beam.underwriting.realtime_rating_backend.main:app"
+_.env_file = ".env"
+
+
+# Development environment
+dev.env.DD_ENV = "dev"
+dev.env.DD_LOGS_INJECTION = "0"
+dev.env.DD_TRACE_ENABLED = "0"
+dev.env.PYTHONUNBUFFERED = "1"
+dev.env.ROLLBAR_ENABLED = "0"
+dev.env.UVICORN_DEBUG = "1"
+dev.env.WEB_CONCURRENCY = "1"
+dev.shell = "./scripts/server"
+dev.help = "Run realtime_rating_backend development server (watch/reload)"
+
+docker-build.shell = """
+    # Alternative to --secret:
+    #   docker secret create aws ${HOME}/.aws/credentials
+
+    docker image build \
+        --file Dockerfile \
+        --secret "id=aws,src=${HOME}/.aws/credentials" \
+        --tag underwriting_server:latest \
+        .
+"""
+docker-build.help = "Build Docker image for underwriting_server:latest"
+
+docker-run.shell = "docker run --rm -it -p 3014:3014 underwriting_server"
+docker-run.help = "Run Docker image underwriting_server:latest"
+
+openapi-export.call = "beam.underwriting.realtime_rating_backend.export:openapi()"
+openapi-export.help = "Export realtime_rating_backend OpenAPI schema"
+openapi-update.call = "beam.underwriting.realtime_rating_backend.export:update_schema()"
+openapi-update.help = "Update realtime_rating_backend OpenAPI schema in documentation"
+
+techdocs.env.IMAGE = "932532311803.dkr.ecr.us-east-1.amazonaws.com/backstage:techdocs-cache"
+techdocs.shell = "techdocs-cli serve -i ${IMAGE} --docker-entrypoint mkdocs -v"
+techdocs.help = "Preview documentation (for Backstage)"
+
+test.cmd = "pytest"
+test.help = "Run test suite"
+tox.cmd = "tox"
+tox.help = "Run test suite across multiple environments"
+
+[tool.pytest.ini_options]
+addopts = [
+    "-ra",
+    "-q",
+    "--doctest-modules",
+    "--cov=src/beam/underwriting",
+    # Very useful development-time options:
+    # "--failed-first", # Run last failures first
+    # "--last-failed", # Just run failed tests, if any
+    # "--exitfirst", # Exit on first error or failed test
+    # "--pdbcls=IPython.terminal.debugger:Pdb", # Use ipdb
+]
+testpaths = ["test"]
+
+[tool.pylint]
+ignored-argument-names = "_.*|^ignored_|^unused_|df"
+
+[tool.pylint.'MASTER']
+load-plugins = ["pylint_pytest", "pylint_pydantic"]
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "logging-fstring-interpolation", # aka W1203
+]
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
