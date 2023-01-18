@@ -10,7 +10,7 @@
       "addLabels": ["gemspec"]
     }
   ],
-  "enabledManagers": ["bundler", "npm", "regex", "pip-compile"],
+  "enabledManagers": ["pip-compile"],
   "rangeStrategy": "update-lockfile",
   "dependencyDashboard": true,
   "pip-compile": {
