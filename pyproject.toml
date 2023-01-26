@@ -49,6 +49,10 @@ sql = [
     "sqlalchemy>=1.4.39",
 ]
 
+[tool.poetry]
+# ...
+readme = "README.md"
+
 [tool.pdm]
 
 [tool.pdm.build]
