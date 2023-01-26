@@ -1,8 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabledManagers": ["npm", "pip-compile"],
+  "enabledManagers": ["npm", "pip-compile", "poetry"],
   "dependencyDashboard": true,
-  "pip-compile": {
-    "fileMatch": ["(^|/)pyproject\\.toml$"]
-  }
 }
