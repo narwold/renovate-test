@@ -1,8 +1,8 @@
 [project]
-name = "underwriting-server"
-description = "Underwriting services, including the realtime rating engine."
+name = "my-server"
+description = "my server"
 authors = [
-    { name = "John Christopher Jones", email = "john.jones@beam.dental" },
+    { name = "Jonathan Narwold", email = "jonnarwold@gmail.com" },
 ]
 dependencies = [
     "fastapi>=0.88.0",
@@ -24,8 +24,6 @@ requires-python = ">=3.10,<3.12"
 readme = "docs/README.md"
 license = { text = "UNLICENSED" }
 dynamic = ["version"]
-urls.homepage = "https://github.com/beamtech/underwriting-server"
-urls.awms-model = "https://github.com/beamtech/awms-model"
 
 [project.optional-dependencies]
 cli = [
@@ -51,9 +49,6 @@ sql = [
     "sqlalchemy>=1.4.39",
 ]
 
-[project.scripts]
-uw = "beam.underwriting.cli.__main__:cli"
-
 [tool.pdm]
 
 [tool.pdm.build]
@@ -61,7 +56,7 @@ includes = ["src", "docs/**/*"]
 
 [tool.pdm.version]
 source = "scm"
-write_to = "beam/underwriting/__version__.py"
+write_to = "my_server/underwriting/__version__.py"
 write_template = "__version__ = '{}'"
 
 [tool.pdm.dev-dependencies]
@@ -90,7 +85,7 @@ profile = "black"
 skip_gitignore = true
 
 [tool.mypy]
-files = ["src/beam", "src/awms_model/app", "test/"]
+files = ["src/my_server", "src/awms_model/app", "test/"]
 ignore_missing_imports = true
 plugins = ["pydantic.mypy"]
 
