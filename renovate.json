@@ -2,5 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "enabledManagers": ["npm", "pip-compile", "poetry"],
   "dependencyDashboard": true,
-  "enabled": true,
+  "enabled": true
 }
