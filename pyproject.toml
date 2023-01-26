@@ -50,7 +50,6 @@ sql = [
 ]
 
 [tool.poetry]
-# ...
 readme = "README.md"
 
 [tool.pdm]
@@ -92,52 +91,6 @@ skip_gitignore = true
 files = ["src/my_server", "src/awms_model/app", "test/"]
 ignore_missing_imports = true
 plugins = ["pydantic.mypy"]
-
-
-[tool.pdm.scripts]
-_.env.APP = "beam.underwriting.realtime_rating_backend.main:app"
-_.env_file = ".env"
-
-
-# Development environment
-dev.env.DD_ENV = "dev"
-dev.env.DD_LOGS_INJECTION = "0"
-dev.env.DD_TRACE_ENABLED = "0"
-dev.env.PYTHONUNBUFFERED = "1"
-dev.env.ROLLBAR_ENABLED = "0"
-dev.env.UVICORN_DEBUG = "1"
-dev.env.WEB_CONCURRENCY = "1"
-dev.shell = "./scripts/server"
-dev.help = "Run realtime_rating_backend development server (watch/reload)"
-
-docker-build.shell = """
-    # Alternative to --secret:
-    #   docker secret create aws ${HOME}/.aws/credentials
-
-    docker image build \
-        --file Dockerfile \
-        --secret "id=aws,src=${HOME}/.aws/credentials" \
-        --tag underwriting_server:latest \
-        .
-"""
-docker-build.help = "Build Docker image for underwriting_server:latest"
-
-docker-run.shell = "docker run --rm -it -p 3014:3014 underwriting_server"
-docker-run.help = "Run Docker image underwriting_server:latest"
-
-openapi-export.call = "beam.underwriting.realtime_rating_backend.export:openapi()"
-openapi-export.help = "Export realtime_rating_backend OpenAPI schema"
-openapi-update.call = "beam.underwriting.realtime_rating_backend.export:update_schema()"
-openapi-update.help = "Update realtime_rating_backend OpenAPI schema in documentation"
-
-techdocs.env.IMAGE = "932532311803.dkr.ecr.us-east-1.amazonaws.com/backstage:techdocs-cache"
-techdocs.shell = "techdocs-cli serve -i ${IMAGE} --docker-entrypoint mkdocs -v"
-techdocs.help = "Preview documentation (for Backstage)"
-
-test.cmd = "pytest"
-test.help = "Run test suite"
-tox.cmd = "tox"
-tox.help = "Run test suite across multiple environments"
 
 [tool.pytest.ini_options]
 addopts = [
