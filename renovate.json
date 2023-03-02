@@ -3,15 +3,13 @@
   "enabledManagers": ["npm", "pip-compile", "poetry"],
   "dependencyDashboard": true,
   "enabled": true,
-  {
-    "regexManagers": [
-      {
-        "fileMatch": ["^myversionsfile.json$"],
-        "matchStrings": ["\"nodeVersions\": \\[(.*)\"(?<currentValue>.*?)\"\\]"],
-        "autoReplaceStringTemplate": "{{{currentValue}}}\", \"{{{newValue}}}",
-        "depNameTemplate": "node",
-        "datasourceTemplate": "npm"
-      }
-    ]
-  }
+  "regexManagers": [
+    {
+      "fileMatch": ["^myversionsfile.json$"],
+      "matchStrings": ["\"nodeVersions\": \\[(.*)\"(?<currentValue>.*?)\"\\]"],
+      "autoReplaceStringTemplate": "{{{currentValue}}}\", \"{{{newValue}}}",
+      "depNameTemplate": "node",
+      "datasourceTemplate": "npm"
+    }
+  ]
 }
