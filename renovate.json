@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabledManagers": ["npm", "pip-compile", "poetry"],
+  "enabledManagers": ["npm", "pip-compile", "poetry", "regex"],
   "dependencyDashboard": true,
   "enabled": true,
   "regexManagers": [
