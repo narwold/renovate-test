@@ -97,7 +97,6 @@ addopts = [
     "-ra",
     "-q",
     "--doctest-modules",
-    "--cov=src/beam/underwriting",
     # Very useful development-time options:
     # "--failed-first", # Run last failures first
     # "--last-failed", # Just run failed tests, if any
