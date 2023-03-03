@@ -6,8 +6,8 @@
   "regexManagers": [
     {
       "fileMatch": ["^myversionsfile.json$"],
-      "matchStrings": ["\"node\": \\[(?<prevVersions>.*)\"(?<currentValue>.*?)\"\\]"],
-      "autoReplaceStringTemplate": "\"node\": [{{{prevVersions}}}\"{{{currentValue}}}\", \"{{{newValue}}}\"]",
+      "matchStrings": ["\"node:(?<currentValue>.*)\"\\]"],
+      "autoReplaceStringTemplate": "\"node:{{{currentValue}}}\", \"{{{newValue}}}\"]",
       "depNameTemplate": "node",
       "datasourceTemplate": "npm"
     }
