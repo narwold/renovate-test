@@ -7,7 +7,7 @@
     {
       "fileMatch": ["^myversionsfile.json$"],
       "matchStrings": ["\"node\": \\[(?<prevVersions>.*)\"(?<currentValue>.*?)\"\\]"],
-      "autoReplaceStringTemplate": "\"node\": [{{{prevVersions}}}\"{{{currentValue}}}\", \"{{{newValue}}}\"",
+      "autoReplaceStringTemplate": "\"node\": [{{{prevVersions}}}\"{{{currentValue}}}\", \"{{{newValue}}}\"]",
       "depNameTemplate": "node",
       "datasourceTemplate": "npm"
     }
