@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabledManagers": ["npm", "regex", "pip_compile", "dockerfile"],
+  "enabledManagers": ["npm", "regex", "dockerfile"],
   "dependencyDashboard": true,
   "enabled": true,
   "regexManagers": [
@@ -9,7 +9,7 @@
       "matchStrings": ["\"node:(?<currentValue>[^\"]*)\"\\]"],
       "autoReplaceStringTemplate": "\"node:{{{currentValue}}}\", \"node:{{{newValue}}}\"]",
       "depNameTemplate": "node",
-      "datasourceTemplate": "npm"
+      "datasourceTemplate": "docker"
     },
     {
       "fileMatch": ["^\\.nvmrc$"],
