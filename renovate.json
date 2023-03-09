@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "enabledManagers": ["npm", "regex", "poetry", "dockerfile"],
+  "enabledManagers": ["npm", "regex", "dockerfile"],
   "dependencyDashboard": true,
   "enabled": true,
   "regexManagers": [
