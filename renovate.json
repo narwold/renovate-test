@@ -16,8 +16,7 @@
       "matchStrings": ["^node:(?<currentValue>[^\"]*)$"],
       "autoReplaceStringTemplate": "node:{{{newValue}}}",
       "depNameTemplate": "node",
-      "datasourceTemplate": "docker",
-      "versioningTemplate": "docker"
+      "datasourceTemplate": "docker"
     }
   ]
 }
