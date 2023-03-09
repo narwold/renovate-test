@@ -14,7 +14,7 @@
     {
       "fileMatch": ["^\\.nvmrc$"],
       "matchStrings": ["n:(?<currentValue>[^\"]*)$"],
-      "autoReplaceStringTemplate": "node:{{{newValue}}}",
+      "autoReplaceStringTemplate": "n:{{{newValue}}}",
       "depNameTemplate": "node",
       "datasourceTemplate": "npm"
     }
