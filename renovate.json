@@ -13,7 +13,7 @@
     },
     {
       "fileMatch": ["^\\.nvmrc$"],
-      "matchStrings": ["^node:(?<currentValue>[^\"]*)$"],
+      "matchStrings": ["^node:(?<currentValue>[0-9.]*)$"],
       "autoReplaceStringTemplate": "node:{{{newValue}}}",
       "depNameTemplate": "node",
       "datasourceTemplate": "docker"
