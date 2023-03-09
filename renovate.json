@@ -10,6 +10,13 @@
       "autoReplaceStringTemplate": "\"node:{{{currentValue}}}\", \"node:{{{newValue}}}\"]",
       "depNameTemplate": "node",
       "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": ["^.nvmrc$"],
+      "matchStrings": ["^(?<currentValue>.*)$"],
+      "autoReplaceStringTemplate": "{{{currentValue}}}",
+      "depNameTemplate": "node",
+      "datasourceTemplate": "npm"
     }
   ]
 }
