@@ -13,8 +13,8 @@
     },
     {
       "fileMatch": ["^\\.nvmrc$"],
-      "matchStrings": ["^n(?<currentValue>[^\"]*)$"],
-      "autoReplaceStringTemplate": "n{{{newValue}}}",
+      "matchStrings": ["^(?<currentValue>[^\"]*)$"],
+      "autoReplaceStringTemplate": "{{{newValue}}}",
       "depNameTemplate": "node",
       "datasourceTemplate": "npm"
     }
