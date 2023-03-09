@@ -32,10 +32,10 @@ GEM
       concurrent-ruby (~> 1.0)
     minitest (5.16.1)
     redis (4.7.1)
-    rspec-core (3.11.0)
-      rspec-support (~> 3.11.0)
-    rspec-support (3.11.0)
-    rspec_junit_formatter (0.5.1)
+    rspec-core (3.12.1)
+      rspec-support (~> 3.12.0)
+    rspec-support (3.12.0)
+    rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
@@ -53,6 +53,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   buildkite-test_collector
@@ -60,7 +61,7 @@ DEPENDENCIES
   factory_bot (~> 6.2.1)
   flipper
   flipper-redis (~> 0.22.2)
-  rspec_junit_formatter (~> 0.5.1)
+  rspec_junit_formatter (~> 0.6.0)
   shoulda-matchers (~> 5.1.0)
   simplecov
   test-prof (~> 1.0.9)
