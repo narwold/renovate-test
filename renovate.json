@@ -12,7 +12,7 @@
       "datasourceTemplate": "npm"
     },
     {
-      "fileMatch": ["^.nvmrc$"],
+      "fileMatch": ["^\\.nvmrc$"],
       "matchStrings": ["^(?<currentValue>.*)$"],
       "autoReplaceStringTemplate": "{{{currentValue}}}",
       "depNameTemplate": "node",
