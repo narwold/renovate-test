@@ -5,10 +5,9 @@
   "enabled": true,
   "regexManagers": [
     {
-      "fileMatch": ["^myversionsfile.json$"],
-      "matchStrings": ["\"node:(?<currentValue>[^\"]*)\"\\]"],
-      "autoReplaceStringTemplate": "\"node:{{{currentValue}}}\", \"node:{{{newValue}}}\"]",
-      "depNameTemplate": "node",
+      "fileMatch": ["^base-images/node/versions.json$"],
+      "matchStrings": ["\"(?<depName>node|python|ruby):(?<currentValue>[^\"]*)\"\\]"],
+      "autoReplaceStringTemplate": "\"{{{depName}}}:{{{currentValue}}}\", \"{{{depName}}}:{{{newValue}}}\"]",
       "datasourceTemplate": "docker"
     },
     {
