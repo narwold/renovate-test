@@ -5,7 +5,7 @@
   "enabled": true,
   "regexManagers": [
     {
-      "fileMatch": ["^base-images/node/versions.json$"],
+      "fileMatch": ["^myversionsfile.json$"],
       "matchStrings": ["\"(?<depName>node|python|ruby):(?<currentValue>[^\"]*)\"\\]"],
       "autoReplaceStringTemplate": "\"{{{depName}}}:{{{currentValue}}}\", \"{{{depName}}}:{{{newValue}}}\"]",
       "datasourceTemplate": "docker"
