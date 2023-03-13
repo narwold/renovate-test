@@ -1,3 +1,13 @@
 {
-  "enabledManagers": ["regex", "dockerfile"]
+  "enabledManagers": ["regex", "dockerfile"],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "labels": [
+        "docker-update"
+      ]
+    }
+  ]
 }
