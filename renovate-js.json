@@ -1,4 +1,14 @@
 {
   "enabledManagers": ["npm"],
-  "enabled": true
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ],
+      "groupName": "react"
+    },
+  ]
 }
