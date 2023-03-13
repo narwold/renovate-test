@@ -1,3 +1,4 @@
 {
-  "enabledManagers": ["npm"]
+  "enabledManagers": ["npm"],
+  "enabled": true,
 }
