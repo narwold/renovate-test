@@ -3,6 +3,7 @@
   "extends": ["github>narwold/renovate-test:renovate-js", "github>narwold/renovate-test:renovate-python", "github>narwold/renovate-test:renovate-docker"],
   "dependencyDashboard": true,
   "enabled": true,
+  "printConfig": true,
   "regexManagers": [
     {
       "fileMatch": ["^myversionsfile.json$"],
