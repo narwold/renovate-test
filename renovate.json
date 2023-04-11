@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>narwold/renovate-test:renovate-js", "github>narwold/renovate-test:renovate-python", "github>narwold/renovate-test:renovate-docker"],
+  "enabledManagers": ["regex", "dockerfile", "npm", "poetry"],
   "dependencyDashboard": true,
   "enabled": true,
   "printConfig": true,
