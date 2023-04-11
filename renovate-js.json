@@ -1,5 +1,9 @@
 {
   "enabledManagers": ["npm"],
+  "npm": {
+    "automerge": true,
+    "platformAutomerge": true,
+  },
   "packageRules": [
     {
       "matchPackageNames": [
