@@ -12,7 +12,9 @@
         "@types/react",
         "@types/react-dom"
       ],
-      "groupName": "react"
+      "groupName": "react",
+      "automerge": false,
+      "platformAutomerge": false
     },
   ]
 }
