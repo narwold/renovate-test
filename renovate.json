@@ -5,6 +5,8 @@
   "dependencyDashboard": true,
   "enabled": true,
   "printConfig": true,
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
   "regexManagers": [
     {
       "fileMatch": ["^myversionsfile.json$"],
