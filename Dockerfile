@@ -1,3 +1,3 @@
-FROM node:16.20.0-slim
+FROM node:20.8.1-slim
 
 RUN echo hello world
