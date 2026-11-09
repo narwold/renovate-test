@@ -139,7 +139,7 @@ updates:
       prefix-development: "fix"
       include: "scope"
     cooldown:
-      default-days: 36500
+      default-days: 90
       exclude:
         - "uuid"
   - package-ecosystem: "npm"
