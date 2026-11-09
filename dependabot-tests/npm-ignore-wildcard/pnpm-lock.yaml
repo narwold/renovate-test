@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       chalk:
-        specifier: 4.1.0
-        version: 4.1.0
+        specifier: 4.1.2
+        version: 4.1.2
       ms:
         specifier: 2.0.0
         version: 2.0.0
@@ -28,8 +28,8 @@ packages:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
 
-  chalk@4.1.0:
-    resolution: {integrity: sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==}
+  chalk@4.1.2:
+    resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
   color-convert@2.0.1:
@@ -65,7 +65,7 @@ snapshots:
     dependencies:
       color-convert: 2.0.1
 
-  chalk@4.1.0:
+  chalk@4.1.2:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
