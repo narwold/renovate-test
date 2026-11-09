@@ -36,7 +36,7 @@ updates:
       prefix-development: "fix"
       include: "scope"
     ignore:
-      - dependency-name: "uuid"
+      - dependency-name: "chalk"
         update-types:
           - "version-update:semver-major"
   - package-ecosystem: "npm"
@@ -246,6 +246,23 @@ updates:
       - dependency-type: "all"
   - package-ecosystem: "bundler"
     directory: "/dependabot-tests/gemspec-only"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-indirect-default"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/pnpm-indirect-all"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    allow:
+    - dependency-type: "all"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/pnpm-indirect-default"
     schedule:
       interval: "daily"
     open-pull-requests-limit: 20

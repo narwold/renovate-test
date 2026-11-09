@@ -40,7 +40,7 @@ jobs:
 
           labels=()
           for l in "$kind" "$mgr" "$dep"; do [[ -n "$l" ]] && labels+=("$l"); done
-          for l in "${labels[@]}"; do gh label create "$l" 2>/dev/null || true; done   # Renovate auto-created labels
+          for l in "${labels[@]}"; do gh label create "$l" || echo "label create '$l' exit=$?"; done   # Renovate auto-created labels
           [[ ${#labels[@]} -gt 0 ]] && gh pr edit "$PR_URL" --add-label "$(IFS=,; echo "${labels[*]}")"
 
           # [js] feat + BREAKING CHANGE for: prod-dep majors, pre-v1 major/minor (^0.), pre-v1 patch (^0.0.)
