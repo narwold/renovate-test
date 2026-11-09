@@ -9,15 +9,16 @@ importers:
   .:
     devDependencies:
       semver:
-        specifier: 7.0.0
-        version: 7.0.0
+        specifier: 7.8.6
+        version: 7.8.6
 
 packages:
 
-  semver@7.0.0:
-    resolution: {integrity: sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==}
+  semver@7.8.6:
+    resolution: {integrity: sha512-9lpSSU4Mly3mrtruwLs1eLK6+gzbzqeBFwRNjIjE+9LuDpWdYctrQlQ3ej1Ilgi7gknpsTRnPoLP8DpCHqHIJw==}
+    engines: {node: '>=10'}
     hasBin: true
 
 snapshots:
 
-  semver@7.0.0: {}
+  semver@7.8.6: {}
