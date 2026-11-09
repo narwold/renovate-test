@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 gem 'flipper'
-gem 'flipper-redis', '~> 0.22.2'
+gem 'flipper-redis', '~> 1.4.2'
 
 group :test do
   gem "buildkite-test_collector"
