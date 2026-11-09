@@ -1,1 +1,1 @@
-{"name":"exp","private":true,"peerDependencies":{"react":"^18.0.0","semver":"^7.0.0"},"dependencies":{"uuid":"^8.0.0","ms":"^2.0.0"},"devDependencies":{"react":"^18.0.0"},"engines":{"node":">=18.0.0"}}
+{"name":"exp","private":true,"peerDependencies":{"react":"^19.3.1","semver":"^7.0.0"},"dependencies":{"uuid":"^8.0.0","ms":"^2.0.0"},"devDependencies":{"react":"^19.3.1"},"engines":{"node":">=18.0.0"}}
