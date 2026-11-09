@@ -1,0 +1,58 @@
+# EXPERIMENT: Renovate behaviors Dependabot can't configure, done after the PR opens.
+#   [def]  labels "{{updateType}}", "{{manager}}", [js] "{{depType}}"  -> labels step
+#   [js]   semanticCommitType feat + commitBody BREAKING CHANGE (prod majors, pre-v1) -> retitle step
+# Re-runs on every push to the PR, so a Dependabot rebase (which resets the title) is re-fixed.
+name: Dependabot metadata
+on: pull_request
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  metadata:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - id: meta
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Labels and conventional-commit title
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          TITLE: ${{ github.event.pull_request.title }}
+          BODY: ${{ github.event.pull_request.body }}
+          UPDATE_TYPE: ${{ steps.meta.outputs.update-type }}  # version-update:semver-major
+          DEP_TYPE: ${{ steps.meta.outputs.dependency-type }} # direct:production | direct:development | indirect
+          ECOSYSTEM: ${{ steps.meta.outputs.package-ecosystem }}
+          PREV: ${{ steps.meta.outputs.previous-version }}
+        run: |
+          kind="${UPDATE_TYPE##*-}"                 # major | minor | patch ("" for docker digests)
+          case "$DEP_TYPE" in
+            *development) dep=devDependencies ;;
+            *production)  dep=dependencies ;;
+            *)            dep="" ;;
+          esac
+          case "$ECOSYSTEM" in npm_and_yarn) mgr=npm ;; *) mgr="$ECOSYSTEM" ;; esac
+
+          labels=()
+          for l in "$kind" "$mgr" "$dep"; do [[ -n "$l" ]] && labels+=("$l"); done
+          for l in "${labels[@]}"; do gh label create "$l" 2>/dev/null || true; done   # Renovate auto-created labels
+          [[ ${#labels[@]} -gt 0 ]] && gh pr edit "$PR_URL" --add-label "$(IFS=,; echo "${labels[*]}")"
+
+          # [js] feat + BREAKING CHANGE for: prod-dep majors, pre-v1 major/minor (^0.), pre-v1 patch (^0.0.)
+          breaking=false
+          [[ "$kind" == major && "$dep" == dependencies ]] && breaking=true
+          [[ "$PREV" == 0.* && "$kind" =~ ^(major|minor)$ ]] && breaking=true
+          [[ "$PREV" == 0.0.* && "$kind" == patch ]] && breaking=true
+          [[ "$breaking" == true ]] || exit 0
+
+          new_title="$(sed -E 's/^fix(\([^)]*\))?:/feat\1:/' <<<"$TITLE")"
+          note="BREAKING CHANGE: Major dependency update occurred"
+          args=()
+          [[ "$new_title" != "$TITLE" ]] && args+=(--title "$new_title")
+          grep -qF "$note" <<<"$BODY" || args+=(--body "$BODY"$'\n\n'"$note")
+          [[ ${#args[@]} -gt 0 ]] && gh pr edit "$PR_URL" "${args[@]}"

@@ -4,6 +4,7 @@
   "enabledManagers": ["regex", "dockerfile", "npm", "poetry"],
   "dependencyDashboard": true,
   "enabled": true,
+  "ignorePaths": ["dependabot-tests/**"],
   "printConfig": true,
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,

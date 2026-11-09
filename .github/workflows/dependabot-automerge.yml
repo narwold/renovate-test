@@ -1,0 +1,54 @@
+# EXPERIMENT: reproduces the Renovate behaviors Dependabot lacks natively.
+#   [js]/[ruby]/[docker] automerge + platformAutomerge  -> gh pr merge --auto
+#   [js]/[ruby]/[python] pre-v1 rule (matchCurrentVersion ^0.)  -> pre-version-1 + block-automerge labels, no automerge
+#   [ruby] block-automerge package rules                -> BLOCK_ALL / BLOCK_NON_PATCH below
+name: Dependabot automerge
+on:
+  pull_request:
+    paths: ["dependabot-tests/npm-automerge/**"]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - id: meta
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Label pre-v1 bumps and decide on automerge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+          UPDATE_TYPE: ${{ steps.meta.outputs.update-type }}
+          NAMES: ${{ steps.meta.outputs.dependency-names }}
+          PREV: ${{ steps.meta.outputs.previous-version }}
+        run: |
+          block=false
+          if [[ "$PREV" == 0.* ]]; then
+            gh pr edit "$PR_URL" --add-label pre-version-1,block-automerge
+            block=true
+          fi
+          [[ ",$LABELS," == *,block-automerge,* ]] && block=true
+          # block-automerge package rules (all update types / non-patch only)
+          for n in $(echo "$NAMES" | tr ',' ' '); do
+            case "$n" in
+              vite|ddtrace) block=true ;; # [repo] vite rule; [ruby] ddtrace rule
+              rails|sidekiq|sidekiq-ent|sidekiq-pro) [[ "$UPDATE_TYPE" != *patch ]] && block=true ;; # [ruby] major+minor only
+            esac
+          done
+          # Renovate automerged patch/minor only; majors and unknown (digest) types: digests only for docker
+          case "$UPDATE_TYPE" in
+            version-update:semver-patch|version-update:semver-minor) ;;
+            "") ;; # docker digest refreshes report no semver type
+            *) block=true ;;
+          esac
+          if [[ "$block" == true ]]; then
+            echo "Not enabling automerge"; exit 0
+          fi
+          gh pr merge --auto --squash "$PR_URL"

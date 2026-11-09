@@ -1,0 +1,48 @@
+# Test probe: records what dependabot/fetch-metadata sees for every Dependabot PR, as a PR comment.
+name: Dependabot probe
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  probe:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - id: meta
+        uses: dependabot/fetch-metadata@v2
+        continue-on-error: true
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Report
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          TITLE: ${{ github.event.pull_request.title }}
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+          ACTOR: ${{ github.actor }}
+          ACTION: ${{ github.event.action }}
+          OUTCOME: ${{ steps.meta.outcome }}
+          UT: ${{ steps.meta.outputs.update-type }}
+          DT: ${{ steps.meta.outputs.dependency-type }}
+          NAMES: ${{ steps.meta.outputs.dependency-names }}
+          PREV: ${{ steps.meta.outputs.previous-version }}
+          NEW: ${{ steps.meta.outputs.new-version }}
+          GROUP: ${{ steps.meta.outputs.dependency-group }}
+          ECO: ${{ steps.meta.outputs.package-ecosystem }}
+          DIR: ${{ steps.meta.outputs.directory }}
+          JSON: ${{ steps.meta.outputs.updated-dependencies-json }}
+        run: |
+          {
+            echo "probe | event=$ACTION | actor=$ACTOR | fetch-metadata=$OUTCOME"
+            echo '```'
+            printf 'title: %s\nlabels: %s\nupdate-type: %s\ndependency-type: %s\nnames: %s\nprevious-version: %s\nnew-version: %s\ngroup: %s\necosystem: %s\ndirectory: %s\njson: %s\n' \
+              "$TITLE" "$LABELS" "$UT" "$DT" "$NAMES" "$PREV" "$NEW" "$GROUP" "$ECO" "$DIR" "$JSON"
+            echo '```'
+          } > body.md
+          gh pr comment "$PR_URL" --body-file body.md

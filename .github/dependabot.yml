@@ -1,0 +1,251 @@
+# Dependabot experiment config for narwold/renovate-test. One entry per fixture under dependabot-tests/.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-default"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "does-not-exist"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-ignore-wildcard"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-ignore-one"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    ignore:
+      - dependency-name: "uuid"
+        update-types:
+          - "version-update:semver-major"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-group-mixed"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    groups:
+      all:
+        patterns:
+          - "*"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-group-minor-patch"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    groups:
+      mp:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-group-split"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    groups:
+      mp:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+      mj:
+        patterns:
+          - "*"
+        update-types:
+          - "major"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-group-ignore"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    groups:
+      mp:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-versioning-increase"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    versioning-strategy: "increase"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-versioning-ifnecessary"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    versioning-strategy: "increase-if-necessary"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-cooldown"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    cooldown:
+      default-days: 36500
+      exclude:
+        - "uuid"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-prev1"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    groups:
+      mp:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-indirect"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    allow:
+      - dependency-type: "all"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-limit"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 2
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+    groups:
+      g:
+        patterns:
+          - "ms"
+          - "semver"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-automerge"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+  - package-ecosystem: "docker"
+    directory: "/dependabot-tests/docker-control"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+  - package-ecosystem: "docker"
+    directory: "/dependabot-tests/docker-ignore-all"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
+  - package-ecosystem: "docker"
+    directory: "/dependabot-tests/docker-names"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    groups:
+      g-node:
+        patterns:
+          - "node"
+      g-library:
+        patterns:
+          - "library/*"
+      g-mcr-host:
+        patterns:
+          - "mcr.microsoft.com/*"
+      g-dotnet-nohost:
+        patterns:
+          - "dotnet/*"
+      g-ghcr-host:
+        patterns:
+          - "ghcr.io/*"
+      g-astral-nohost:
+        patterns:
+          - "astral-sh/*"
+  - package-ecosystem: "bundler"
+    directory: "/dependabot-tests/bundler-direct"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+  - package-ecosystem: "bundler"
+    directory: "/dependabot-tests/bundler-all"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    allow:
+      - dependency-type: "all"
+  - package-ecosystem: "bundler"
+    directory: "/dependabot-tests/gemspec-only"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
