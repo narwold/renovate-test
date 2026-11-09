@@ -19,8 +19,8 @@ importers:
         version: 8.0.0
     devDependencies:
       semver:
-        specifier: 7.0.0
-        version: 7.0.0
+        specifier: 7.8.5
+        version: 7.8.5
 
 packages:
 
@@ -46,8 +46,9 @@ packages:
   ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
 
-  semver@7.0.0:
-    resolution: {integrity: sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==}
+  semver@7.8.5:
+    resolution: {integrity: sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==}
+    engines: {node: '>=10'}
     hasBin: true
 
   supports-color@7.2.0:
@@ -80,7 +81,7 @@ snapshots:
 
   ms@2.0.0: {}
 
-  semver@7.0.0: {}
+  semver@7.8.5: {}
 
   supports-color@7.2.0:
     dependencies:
