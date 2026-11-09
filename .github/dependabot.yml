@@ -286,12 +286,3 @@ updates:
       lockfile:
         patterns:
         - "*"
-  # DUPLICATE-ENTRY TEST: same ecosystem + directory as the npm-default entry above
-  - package-ecosystem: "npm"
-    directory: "/dependabot-tests/npm-default"
-    schedule:
-      interval: "daily"
-    ignore:
-    - dependency-name: "*"
-      update-types:
-      - "version-update:semver-major"
