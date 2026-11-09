@@ -266,3 +266,23 @@ updates:
     schedule:
       interval: "daily"
     open-pull-requests-limit: 20
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/npm-prev1-single"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    commit-message:
+      prefix: "fix"
+      prefix-development: "fix"
+      include: "scope"
+  - package-ecosystem: "npm"
+    directory: "/dependabot-tests/pnpm-indirect-group"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 20
+    allow:
+    - dependency-type: "all"
+    groups:
+      lockfile:
+        patterns:
+        - "*"
