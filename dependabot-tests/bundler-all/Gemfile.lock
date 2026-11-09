@@ -31,7 +31,7 @@ GEM
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     minitest (5.16.1)
-    redis (4.7.1)
+    redis (4.8.1)
     rspec-core (3.11.0)
       rspec-support (~> 3.11.0)
     rspec-support (3.11.0)
@@ -53,6 +53,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   buildkite-test_collector
