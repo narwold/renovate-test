@@ -1,1 +1,1 @@
-{"name":"exp","private":true,"dependencies":{"uuid":"8.0.0","chalk":"4.1.0","ms":"2.0.0"},"devDependencies":{"semver":"7.0.0"}}
+{"name":"exp","private":true,"dependencies":{"uuid":"14.0.3","chalk":"4.1.0","ms":"2.0.0"},"devDependencies":{"semver":"7.0.0"}}
