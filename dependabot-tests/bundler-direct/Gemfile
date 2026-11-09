@@ -12,7 +12,7 @@ group :test do
   gem 'shoulda-matchers', '~> 5.1.0'
   gem 'simplecov', require: false
   gem 'test-prof', '~> 1.0.9'
-  gem 'timecop', '~> 0.9.5'
+  gem 'timecop', '~> 0.9.11'
 end
 
 group :development do
